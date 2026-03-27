@@ -7,9 +7,10 @@ import Register from "./components/Register"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 
+
 function App() {
   return (
-    <div>
+    <div> 
       <Navbar />
       <Hero />
       <About />
@@ -17,6 +18,7 @@ function App() {
       <Register />
       <Contact />
       <Footer />
+      {/*sponsorzy */}
     </div>
   )
 }

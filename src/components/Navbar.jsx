@@ -1,8 +1,11 @@
+///*import logoKrasnal from "../assets/Logos/logo-krasnal.svg";*/
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="#" className="navbar-logo">KRASNAL</a>
+        <a href="/" className="navbar-brand">
+          <span className="navbar-logo-text">KRASNAL</span> {/*<img src={logoKrasnal} alt="KRASNAL" className="navbar-logo" />*/}
+        </a>
 
         <div className="navbar-links">
           <a href="#about">O konferencji</a>
@@ -12,7 +15,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
