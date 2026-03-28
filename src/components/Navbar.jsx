@@ -1,10 +1,10 @@
-///*import logoKrasnal from "../assets/Logos/logo-krasnal.svg";*/
+import logoKrasnal from "../assets/Logos/logo-krasnal.png";
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <a href="/" className="navbar-brand">
-          <span className="navbar-logo-text">KRASNAL</span> {/*<img src={logoKrasnal} alt="KRASNAL" className="navbar-logo" />*/}
+        <img src={logoKrasnal} alt="KRASNAL" className="navbar-logo"></img>
         </a>
 
         <div className="navbar-links">

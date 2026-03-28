@@ -1,32 +1,31 @@
 :root {
-  --bg-light: #f4f7f8;
-  --bg-white: #ffffff;
+  --bg-light: #e7f0ef;
+  --bg-white: #f8fbfb;
   --text-dark: #011621;
   --text-muted: #31515c;
 
-  --nav-dark: #011621;
-  --nav-darker: #00080c;
+  --nav-dark: #243740;
+  --nav-darker: #1a2a31;
 
   --primary: #1e8c79;
-  --primary-dark: #054f52;
+  --primary-dark: #0f6d66;
   --secondary: #022e49;
 
   --accent-red: #c10532;
-  --accent-pink: #ff00a4;
+  --accent-pink: #d94b8a;
 }
 
 .navbar {
-  background: linear-gradient(90deg, var(--nav-darker), var(--nav-dark));
-  color: white;
-  padding: 20px 40px;
+  background: linear-gradient(90deg, #21343d 0%, #16262d 55%, #0d1a20 100%);
+  padding: 14px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
 }
 
 .navbar-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -34,37 +33,40 @@
 }
 
 .navbar-logo {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: white;
+  height: 64px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.515));
+
+
 }
 
 .navbar-links {
   display: flex;
-  gap: 28px;
+  gap: 36px;
 }
 
 .navbar-links a {
-  color: white;
-  font-weight: 500;
-  transition: 0.2s ease;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding-bottom: 6px;
   position: relative;
+  transition: color 0.2s ease;
 }
-
 .navbar-links a:hover {
-  color: #1e8c79;
+  color: #1D6265 ;
 }
-
 .navbar-links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -4px;
   width: 0;
   height: 2px;
-  background-color: var(--primary);
-  transition: 0.2s ease;
+  background-color: #1E8C79 ;
+  transition: width 0.2s ease;
 }
 
 .navbar-links a:hover::after {
@@ -74,7 +76,7 @@
 .hero {
   padding: 130px 20px;
   text-align: center;
-  background: linear-gradient(180deg, #eef6f5 0%, #dcebea 100%);
+  background: linear-gradient(180deg, #dfe9e8 0%, #cfdddc 100%);
 }
 
 .hero-container {
@@ -159,7 +161,7 @@
 
 .program {
   padding: 90px 20px;
-  background-color: #eef6f5;
+  background-color: #e8f1f0;
 }
 
 .program-container {
@@ -201,9 +203,8 @@
 
 .contact {
   padding: 90px 20px;
-  background-color: #f7fbfb;
+  background-color: #eef5f4;
 }
-
 .contact-container {
   max-width: 900px;
   margin: 0 auto;
@@ -211,22 +212,9 @@
 }
 
 .footer {
-  background: linear-gradient(90deg, var(--nav-darker), var(--nav-dark));
+  background: linear-gradient(90deg, var(--nav-dark) 30%, var(--nav-darker) 100%);
   color: white;
   text-align: center;
   padding: 34px 20px;
   margin-top: 0;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.navbar-logo-text {
-  font-size: 2rem;
-  font-weight: 800;
-  color: white;
-  letter-spacing: 0.03em;
 }
