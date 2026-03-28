@@ -5,7 +5,7 @@ function Hero() {
         <h1>KRASNAL 2026</h1> {/*żeby w tle tego działo się więcej */}
 
         <p>Ogólnopolska Konferencja Fizyków</p>
-        <a href="#register" className="hero-button">
+        <a href="#zglos-sie" className="register-link">
           Zgłoś się
         </a>
       </div>
@@ -13,4 +13,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Hero;

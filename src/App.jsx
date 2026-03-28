@@ -1,26 +1,34 @@
-import "./App.css"
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import About from "./components/About"
-import Program from "./components/Program"
-import Register from "./components/Register"
-import Contact from "./components/Contact"
-import Footer from "./components/Footer"
+import "./App.css";
+import { useState } from "react";
 
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Program from "./components/Program";
+import Register from "./components/Register";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Sponsors from "./components/Sponsors";
 
 function App() {
+  const [aboutFace, setAboutFace] = useState(0);
+  const [programFace, setProgramFace] = useState(0);
+
   return (
-    <div> 
-      <Navbar />
+    <div>
+      <Navbar
+        setAboutFace={setAboutFace}
+        setProgramFace={setProgramFace}
+      />
       <Hero />
-      <About />
-      <Program />
+      <About aboutFace={aboutFace} setAboutFace={setAboutFace} />
+      <Program programFace={programFace} setProgramFace={setProgramFace} />
+      <Sponsors />
       <Register />
       <Contact />
       <Footer />
-      {/*sponsorzy */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

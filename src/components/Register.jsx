@@ -1,6 +1,6 @@
 function Register() {
   return (
-    <section className="register" id="register">
+    <section className="register" id="zglos-sie">
       <div className="register-container">
         <h2>Zgłoszenia</h2>
         <p>
@@ -16,4 +16,4 @@ function Register() {
   )
 }
 
-export default Register
+export default Register;

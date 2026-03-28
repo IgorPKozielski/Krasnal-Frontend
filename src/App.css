@@ -14,6 +14,94 @@
   --accent-red: #c10532;
   --accent-pink: #d94b8a;
 }
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 0 6px;
+  font-family: inherit;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-link-btn:hover {
+  color: #1d6265;
+}
+
+.nav-link-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #1e8c79;
+  transition: width 0.2s ease;
+}
+
+.dropdown:hover .nav-link-btn::after {
+  width: 100%;
+}
+.nav-caret {
+  margin-left: 6px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 220px;
+  background: linear-gradient(180deg, #243740 0%, #1a2a31 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 1200;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown {
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+.dropdown-menu button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.96rem;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu button:hover {
+  background: rgba(30, 140, 121, 0.16);
+  color: #ffffff;
+}
 
 .navbar {
   background: linear-gradient(90deg, #21343d 0%, #16262d 55%, #0d1a20 100%);
@@ -121,9 +209,10 @@
 }
 
 .about-container {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .about h2,
@@ -165,14 +254,15 @@
 }
 
 .program-container {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .register {
   padding: 90px 20px;
-  background-color: var(--bg-white);
+  background-color: #e8f1f0;
 }
 
 .register-container {
@@ -203,7 +293,7 @@
 
 .contact {
   padding: 90px 20px;
-  background-color: #eef5f4;
+  background-color: #f5f7f7;
 }
 .contact-container {
   max-width: 900px;
@@ -217,4 +307,188 @@
   text-align: center;
   padding: 34px 20px;
   margin-top: 0;
+}
+.sponsors-section {
+  background: #f5f7f7;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.sponsors-section h2 {
+  font-size: 3rem;
+  color: #011f2e;
+  margin-bottom: 10px;
+}
+
+.section-underline {
+  width: 80px;
+  height: 4px;
+  margin: 0 auto 30px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #168c84, #d14d8b);
+}
+
+.sponsors-description {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.3rem;
+  color: #274b63;
+  line-height: 1.6;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sponsor-card {
+  height: 100px;
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a8f9b;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(1, 31, 46, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-4px);
+}
+.cube-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cube-scene {
+  width: 100%;
+  max-width: 1200px;
+  height: 520px;
+  perspective: 1800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cube {
+  width: 100%;
+  max-width: 100%;
+  height: 520px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  max-width: 1200px;
+  height: 520px;
+  background: #f7f9f9;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 80px;
+  box-sizing: border-box;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.cube-face h2 {
+  font-size: 5rem;
+  margin-bottom: 18px;
+  color: var(--text-dark);
+}
+
+.cube-face p {
+  margin-top: 28px;
+  font-size: 2rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 900px;
+}
+.cube-front {
+  transform: rotateY(0deg) translateZ(600px);
+}
+
+.cube-right {
+  transform: rotateY(90deg) translateZ(600px);
+}
+
+.cube-back {
+  transform: rotateY(180deg) translateZ(600px);
+}
+
+.cube-left {
+  transform: rotateY(-90deg) translateZ(600px);
+}
+.program-face {
+  background: linear-gradient(180deg, #eef5f4 0%, #e3efed 100%);
+  border: 1px solid rgba(30, 140, 121, 0.08);
+}
+
+.program-face p {
+  color: #2f5560;
+}
+.carousel-btn {
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(22, 140, 132, 0.14);
+  color: var(--text-dark);
+  font-size: 34px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.carousel-btn.left {
+  left: 40px;
+}
+
+.carousel-btn.right {
+  right: 40px;
+}
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+  background-color: rgba(22, 140, 132, 0.22);
+}
+.nabla-link {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nabla-link:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(1, 31, 46, 0.08);
+}
+
+.nabla-logo {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
