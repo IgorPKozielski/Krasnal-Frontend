@@ -1,4 +1,4 @@
-import logoKrasnal from "../assets/Logos/logo-krasnal.png";
+import logoKrasnal from "../assets/Logos/logo-krasnal-białe.png";
 
 function Navbar({ setAboutFace, setProgramFace }) {
   const goToSection = (id) => {
