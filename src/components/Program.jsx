@@ -1,4 +1,15 @@
+import { useEffect, useState } from 'react';
+import { fetchData } from '../api';
+
 function Program({ programFace, setProgramFace }) {
+  const [schedule, setSchedule] = useState([]);
+  const [speakers, setSpeakers] = useState([]);
+
+  useEffect(() => {
+    fetchData('/schedule').then(setSchedule).catch(console.error);
+    fetchData('/speakers').then(setSpeakers).catch(console.error);
+  }, []);
+
   const nextSlide = () => {
     setProgramFace((prev) => (prev + 1) % 4);
   };
@@ -23,19 +34,38 @@ function Program({ programFace, setProgramFace }) {
               <div className="cube-face program-face cube-front">
                 <h2>Program</h2>
                 <div className="section-underline"></div>
+                {/*
                 <p>
                   W tej sekcji pojawią się informacje o wystąpieniach,
                   harmonogramie i głównych punktach programu konferencji.
                 </p>
+                */}
+                <div className="program-list">
+                  {schedule && schedule.length > 0 ? schedule.slice(0, 5).map(item => (
+                    <div key={item.id} className="program-item">
+                      <strong>{item.start_time ? new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ''}</strong> - {item.title}
+                    </div>
+                  )) : <p>Harmonogram wkrótce...</p>}
+                </div>
               </div>
 
               <div className="cube-face program-face cube-right">
                 <h2>Szczegółowy plan</h2>
                 <div className="section-underline"></div>
+                {/*
                 <p>
                   Tutaj zostanie opublikowany szczegółowy harmonogram wydarzenia,
                   z podziałem na dni, godziny i bloki tematyczne.
                 </p>
+                */}
+                <div className="program-scroll">
+                  {schedule && schedule.length > 0 ? schedule.map(item => (
+                    <div key={item.id} className="program-detail">
+                      <span>{item.start_time ? new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ''}</span>
+                      <p>{item.title} ({item.room})</p>
+                    </div>
+                  )) : <p>Szczegóły wkrótce...</p>}
+                </div>
               </div>
 
               <div className="cube-face program-face cube-back">
@@ -50,10 +80,19 @@ function Program({ programFace, setProgramFace }) {
               <div className="cube-face program-face cube-left">
                 <h2>Prelegenci</h2>
                 <div className="section-underline"></div>
+                {/*
                 <p>
                   Tutaj znajdą się informacje o prelegentach, ich afiliacjach
                   oraz tematach wystąpień.
                 </p>
+                */}
+                <div className="speakers-list">
+                  {speakers && speakers.length > 0 ? speakers.map(speaker => (
+                    <div key={speaker.id} className="speaker-mini">
+                      <strong>{speaker.name}</strong> - {speaker.talk_title}
+                    </div>
+                  )) : <p>Prelegenci wkrótce...</p>}
+                </div>
               </div>
             </div>
           </div>
