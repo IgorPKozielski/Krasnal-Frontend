@@ -1,1 +1,1 @@
-This is a frontend site for conference of physics students called KRASNAL. Held in Wroclaw 
+This is a frontend for site about conference of physics students called KRASNAL. Held in Wroclaw 
