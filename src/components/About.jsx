@@ -30,7 +30,7 @@ function About({ aboutFace, setAboutFace }) {
               className="cube"
               style={{ transform: `translateZ(-600px) rotateY(${-aboutFace * 90}deg)` }}
             >
-              <div className="cube-face cube-front">
+              <div className={`cube-face cube-front ${aboutFace === 0 ? "active" : ""}`}>
                 <h2>O konferencji</h2>
                 <div className="section-underline"></div>
                 <p>
@@ -39,7 +39,7 @@ function About({ aboutFace, setAboutFace }) {
                 </p>
               </div>
 
-              <div className="cube-face cube-right">
+              <div className={`cube-face cube-right ${aboutFace === 1 ? "active" : ""}`}>
                 <h2>Uczestnicy</h2>
                 <div className="section-underline"></div>
                 <p>
@@ -48,7 +48,7 @@ function About({ aboutFace, setAboutFace }) {
                 </p>
               </div>
 
-              <div className="cube-face cube-back">
+              <div className={`cube-face cube-back ${aboutFace === 2 ? "active" : ""}`}>
                 <h2>Dla kogo</h2>
                 <div className="section-underline"></div>
                 <p>
@@ -57,7 +57,7 @@ function About({ aboutFace, setAboutFace }) {
                 </p>
               </div>
 
-              <div className="cube-face cube-left">
+              <div className={`cube-face cube-left ${aboutFace === 3 ? "active" : ""}`}>
                 <h2>Organizatorzy</h2>
                 <div className="section-underline"></div>
                 <p>

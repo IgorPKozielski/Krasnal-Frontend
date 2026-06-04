@@ -31,7 +31,7 @@ function Program({ programFace, setProgramFace }) {
               className="cube program-cube"
               style={{ transform: `translateZ(-600px) rotateY(${-programFace * 90}deg)` }}
             >
-              <div className="cube-face program-face cube-front">
+              <div className={`cube-face program-face cube-front ${programFace === 0 ? "active" : ""}`}>
                 <h2>Program</h2>
                 <div className="section-underline"></div>
                 {/*
@@ -49,7 +49,7 @@ function Program({ programFace, setProgramFace }) {
                 </div>
               </div>
 
-              <div className="cube-face program-face cube-right">
+              <div className={`cube-face program-face cube-right ${programFace === 1 ? "active" : ""}`}>
                 <h2>Szczegółowy plan</h2>
                 <div className="section-underline"></div>
                 {/*
@@ -68,7 +68,7 @@ function Program({ programFace, setProgramFace }) {
                 </div>
               </div>
 
-              <div className="cube-face program-face cube-back">
+              <div className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}>
                 <h2>Mapka sal</h2>
                 <div className="section-underline"></div>
                 <p>
@@ -77,7 +77,7 @@ function Program({ programFace, setProgramFace }) {
                 </p>
               </div>
 
-              <div className="cube-face program-face cube-left">
+              <div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
                 <h2>Prelegenci</h2>
                 <div className="section-underline"></div>
                 {/*

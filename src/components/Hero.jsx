@@ -14,7 +14,7 @@ function Hero() {
 
   const [dayIndex, setDayIndex] = useState(0)
   const [monthIndex, setMonthIndex] = useState(0)
-
+  const dateStep = window.innerWidth <= 430 ? 54 : 58
   useEffect(() => {
     const timeouts = []
 
@@ -63,7 +63,7 @@ function Hero() {
               <div className="date-window date-window-day">
                 <div
                   className="date-strip"
-                  style={{ transform: `translateY(-${dayIndex * 72}px)` }}
+                  style={{ transform: `translateY(-${dayIndex * dateStep}px)` }}
                 >
                 {dayValues.map((day, index) => (
                   <span
@@ -81,7 +81,7 @@ function Hero() {
               <div className="date-window">
                 <div
                   className="date-strip date-strip-slower"
-                  style={{ transform: `translateY(-${monthIndex * 72}px)` }}
+                  style={{ transform: `translateY(-${monthIndex * dateStep}px)` }}
                 >
                 {monthValues.map((month, index) => (
                   <span
