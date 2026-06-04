@@ -1,46 +1,55 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import maskotka from "../assets/maskotka.svg"
 
 function Hero() {
-  const dayValues = useMemo(
-    () => ["01-02", "03", "04", "07-08", "09", "11","13", "15-17", "18", "21", "24", "26", "26-27"],
-    []
-  )
+const dateValues = useMemo(
+  () => [
+    ["01-02", "03"],
+    ["03", "04"],
+    ["04", "05"],
+    ["07-08", "06"],
+    ["09", "07"],
+    ["11", "08"],
+    ["13", "08"],
+    ["15-17", "08"],
+    ["18", "08"],
+    ["21", "08"],
+    ["24", "08"],
+    ["27", "08"],
+    ["30", "08"],
+    ["02", "09"],
+    ["06", "09"],
+    ["11", "09"],
+    ["17", "09"],
+    ["22", "09"],
+    ["25-27", "09"],
+  ],
+  []
+)
 
-  const monthValues = useMemo(
-    () => ["03", "04", "05", "06", "07", "08", "09"],
-    []
-  )
+const [dateIndex, setDateIndex] = useState(0)
 
-  const [dayIndex, setDayIndex] = useState(0)
-  const [monthIndex, setMonthIndex] = useState(0)
-  const dateStep = window.innerWidth <= 430 ? 54 : 58
-  useEffect(() => {
-    const timeouts = []
+const dateStep =
+  window.innerWidth <= 430 ? 54 :
+  window.innerWidth <= 640 ? 58 :
+  72
 
-    const initialDelay = 800
-    const dayStep = 120
-    const monthStep = 200
+useEffect(() => {
+  const timeouts = []
 
-    dayValues.forEach((_, index) => {
-      timeouts.push(
-        setTimeout(() => {
-          setDayIndex(index)
-        }, initialDelay + index * dayStep)
-      )
-    })
+  const initialDelay = 800
+  const step = 140
 
-    monthValues.forEach((_, index) => {
-      timeouts.push(
-        setTimeout(() => {
-          setMonthIndex(index)
-        }, initialDelay + index * monthStep)
-      )
-    })
+  dateValues.forEach((_, index) => {
+    timeouts.push(
+      setTimeout(() => {
+        setDateIndex(index)
+      }, initialDelay + index * step)
+    )
+  })
 
-    return () => timeouts.forEach(clearTimeout)
-  }, [dayValues, monthValues])
-
+  return () => timeouts.forEach(clearTimeout)
+}, [dateValues])
   return (
     <section className="hero">
       <div className="hero-container">
@@ -61,19 +70,21 @@ function Hero() {
 
             <div className="hero-date-machine" aria-live="polite">
               <div className="date-window date-window-day">
-                <div
-                  className="date-strip"
-                  style={{ transform: `translateY(-${dayIndex * dateStep}px)` }}
-                >
-                {dayValues.map((day, index) => (
-                  <span
-                    key={day}
-                    className={`date-value ${index === dayValues.length - 1 ? "date-value-final" : ""}`}
-                  >
-                    {day}
-                  </span>
-                ))}
-                </div>
+         <div
+              className="date-strip"
+              style={{ transform: `translateY(-${dateIndex * dateStep}px)` }}
+        >
+          {dateValues.map(([day], index) => (
+             <span
+                key={`${day}-${index}`}
+                className={`date-value ${
+                  index === dateValues.length - 1 ? "date-value-final" : ""
+                }`}
+             >
+                {day}
+             </span>
+          ))}
+        </div>
               </div>
 
               <span className="date-separator">–</span>
@@ -81,21 +92,19 @@ function Hero() {
               <div className="date-window">
                 <div
                   className="date-strip date-strip-slower"
-                  style={{ transform: `translateY(-${monthIndex * dateStep}px)` }}
+                  style={{ transform: `translateY(-${dateIndex * dateStep}px)` }}
                 >
-                {monthValues.map((month, index) => (
-                  <span
-                    key={month}
-                    className={`date-value ${
-                      index === monthValues.length - 1 && monthIndex === monthValues.length - 1
-                        ? "date-value-final"
-                        : ""
-                    }`}
-                  >
-                    {month}
-                  </span>
+                  {dateValues.map(([, month], index) => (
+                    <span
+                      key={`${month}-${index}`}
+                      className={`date-value ${
+                        index === dateValues.length - 1 ? "date-value-final" : ""
+                      }`}
+                    >
+                      {month}
+                    </span>
                 ))}
-                </div>
+              </div>
               </div>
 
               <span className="date-separator">–</span>

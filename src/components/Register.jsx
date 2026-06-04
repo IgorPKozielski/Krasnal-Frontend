@@ -53,8 +53,16 @@ function Register() {
           <input type="text" name="last_name" placeholder="Nazwisko" value={formData.last_name} onChange={handleChange} required />
           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
           <input type="text" name="affiliation" placeholder="Afiliacja" value={formData.affiliation} onChange={handleChange} />
-          <textarea name="dietary_needs" placeholder="Potrzeby żywieniowe" value={formData.dietary_needs} onChange={handleChange}></textarea>
-          <button type="submit" className="register-link">Wyślij zgłoszenie</button>
+          <textarea
+          className="full-width"
+          name="dietary_needs"
+          placeholder="Potrzeby żywieniowe"
+          value={formData.dietary_needs}
+          onChange={handleChange}
+          />
+            <button type="submit" className="register-link full-width">
+              Wyślij zgłoszenie
+            </button>
         </form>
         {status && <p className="status-message">{status}</p>}
       </div>
