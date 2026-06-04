@@ -39,12 +39,12 @@ function Navbar({ setAboutFace, setProgramFace }) {
           </div>
 
           <div className="nav-item dropdown">
-            <button className="nav-link-btn" onClick={() => goToAboutFace(0)}>
-             Program <span className="nav-caret">▾</span>
-           </button>
+            <button className="nav-link-btn" onClick={() => goToProgramFace(0)}>
+              Informacje <span className="nav-caret">▾</span>
+            </button>
             <div className="dropdown-menu">
               <button onClick={() => goToProgramFace(0)}>Program</button>
-              <button onClick={() => goToProgramFace(1)}>Szczegółowy plan</button>
+              <button onClick={() => goToProgramFace(1)}>Jak dojechać?</button>
               <button onClick={() => goToProgramFace(2)}>Mapka sal</button>
               <button onClick={() => goToProgramFace(3)}>Prelegenci</button>
             </div>

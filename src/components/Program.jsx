@@ -49,24 +49,34 @@ function Program({ programFace, setProgramFace }) {
                 </div>
               </div>
 
-              <div className={`cube-face program-face cube-right ${programFace === 1 ? "active" : ""}`}>
-                <h2>Szczegółowy plan</h2>
-                <div className="section-underline"></div>
-                {/*
-                <p>
-                  Tutaj zostanie opublikowany szczegółowy harmonogram wydarzenia,
-                  z podziałem na dni, godziny i bloki tematyczne.
-                </p>
-                */}
-                <div className="program-scroll">
-                  {schedule && schedule.length > 0 ? schedule.map(item => (
-                    <div key={item.id} className="program-detail">
-                      <span>{item.start_time ? new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ''}</span>
-                      <p>{item.title} ({item.room})</p>
-                    </div>
-                  )) : <p>Szczegóły wkrótce...</p>}
-                </div>
-              </div>
+<div className={`cube-face program-face cube-right ${programFace === 1 ? "active" : ""}`}>
+  <h2>Jak dojechać?</h2>
+  <div className="section-underline"></div>
+
+  <div className="program-scroll">
+    <div className="program-detail">
+      <h3>Z dworca głównego</h3>
+      <p>
+        Autobusy: 145, 146<br />
+        Tramwaje: 2, 4
+      </p>
+    </div>
+
+    <div className="program-detail">
+      <p>
+  Polecamy skorzystać z aplikacji{" "}
+  <a
+    href="https://jakdojade.pl"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Jakdojade
+  </a>
+  , aby sprawdzić aktualne połączenia i ewentualne zmiany w komunikacji miejskiej.
+    </p>
+    </div>
+  </div>
+</div>
 
               <div className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}>
                 <h2>Mapka sal</h2>

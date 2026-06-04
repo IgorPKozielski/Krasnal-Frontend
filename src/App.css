@@ -1094,3 +1094,89 @@
     min-width: 0;
   }
 }
+.register-form select {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid rgba(0, 87, 103, 0.18);
+  border-radius: 14px;
+  font: inherit;
+  background: #f8fcfb;
+  outline: none;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.form-check input {
+  width: auto;
+}
+
+.form-group {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.form-group p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.form-section {
+  padding: 20px;
+  border: 1px solid rgba(0, 87, 103, 0.14);
+  border-radius: 18px;
+  background: #f8fcfb;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.required-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #8b1e3f;
+  background: #f8dce5;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.optional-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5f6c73;
+  background: #eef2f4;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.form-section small {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.form-check {
+  padding: 6px 0;
+}
+.program-detail h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
