@@ -14,7 +14,19 @@ export const postData = async (endpoint, data) => {
   });
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || 'Network response was not ok');
+    throw new Error(errorData.error || errorData.message || 'Network response was not ok');
+  }
+  return response.json();
+};
+
+export const postFormData = async (endpoint, formData) => {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: 'POST',
+    body: formData,
+  });
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || errorData.message || 'Network response was not ok');
   }
   return response.json();
 };

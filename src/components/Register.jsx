@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { postData } from '../api';
+import { postFormData } from '../api';
 
 function Register() {
   const initialFormData = {
@@ -62,7 +62,24 @@ function Register() {
     setStatus('Sending...');
 
     try {
-      await postData('/register', formData);
+      const fd = new FormData();
+      fd.append('first_name', formData.first_name);
+      fd.append('last_name', formData.last_name);
+      fd.append('email', formData.email);
+      fd.append('phone', formData.phone);
+      fd.append('affiliation', formData.affiliation);
+      fd.append('rodo', formData.rodo);
+      fd.append('presentation_type', formData.presentation_type);
+      fd.append('abstract_file_later', formData.abstract_file_later);
+      fd.append('trip_to_intibs', formData.trip_to_intibs);
+      fd.append('diet', formData.diet);
+      fd.append('application_requirements', formData.application_requirements);
+      formData.attendance_days.forEach(day => fd.append('attendance_days', day));
+      if (formData.abstract_file) {
+        fd.append('abstract_file', formData.abstract_file);
+      }
+
+      await postFormData('/register', fd);
       setStatus('Registration successful!');
       setFormData(initialFormData);
     } catch (err) {
