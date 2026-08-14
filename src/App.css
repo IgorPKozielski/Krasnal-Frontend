@@ -572,7 +572,7 @@
 }
 
 .cube-face h2 {
-  font-size: 5rem;
+  font-size: 3rem;
   margin-bottom: 18px;
   color: var(--text-dark);
 }
@@ -1179,4 +1179,145 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+/* ===== Wycieczka do INTiBS ===== */
+
+.intibs-content {
+  width: 86%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.intibs-text {
+  text-align: left;
+}
+
+.intibs-text h2 {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.intibs-text .section-underline {
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.intibs-text p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.intibs-image {
+  width: 100%;
+}
+
+.intibs-image img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+.intibs-image a {
+  display: block;
+}
+
+.intibs-image img {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.intibs-image a:hover img {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .intibs-content {
+    width: 82%;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .intibs-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .intibs-text .section-underline {
+    margin-bottom: 18px;
+  }
+
+  .intibs-text p {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .intibs-image img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+}
+/* ===== Patronaty ===== */
+
+.patronages-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 30px;
+  margin: 45px 0 70px;
+}
+
+.patronage-card {
+  height: 160px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.patronage-logo {
+  width: 100%;
+  height: 100%;
+  max-width: 220px;
+  max-height: 120px;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.patronage-card:hover .patronage-logo {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+.sponsors-subtitle {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0 35px;
+}
+@media (max-width: 768px) {
+  .patronages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0 50px;
+  }
+
+  .patronage-card {
+    height: 120px;
+    padding: 15px;
+  }
+
+  .patronage-logo {
+    max-height: 90px;
+  }
+
+  .sponsors-subtitle {
+    font-size: 1.6rem;
+  }
 }

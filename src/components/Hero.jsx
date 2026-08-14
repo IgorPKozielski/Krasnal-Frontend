@@ -116,7 +116,7 @@ useEffect(() => {
           </div>
 
           <a href="#zglos-sie" className="hero-button">
-            Zgłoś się już teraz
+            Zgłoś się (po otwarciu rejestracji)
           </a>
         </div>
       </div>

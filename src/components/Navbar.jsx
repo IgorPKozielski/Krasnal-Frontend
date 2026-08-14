@@ -32,7 +32,7 @@ function Navbar({ setAboutFace, setProgramFace }) {
            </button>
             <div className="dropdown-menu">
               <button onClick={() => goToAboutFace(0)}>O konferencji</button>
-              <button onClick={() => goToAboutFace(1)}>Uczestnicy</button>
+              <button onClick={() => goToAboutFace(1)}>Wycieczka</button>
               <button onClick={() => goToAboutFace(2)}>Dla kogo</button>
               <button onClick={() => goToAboutFace(3)}>Organizatorzy</button>
             </div>

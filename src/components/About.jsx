@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import nablaLogo from "../assets/Logos/logo-nabla.png";
-
+import wycieczkaImg from "../assets/wycieczka.jpg";
 function About({ aboutFace, setAboutFace }) {
   useEffect(() => {
     const section = document.getElementById("o-konferencji");
@@ -40,13 +40,37 @@ function About({ aboutFace, setAboutFace }) {
               </div>
 
               <div className={`cube-face cube-right ${aboutFace === 1 ? "active" : ""}`}>
-                <h2>Uczestnicy</h2>
-                <div className="section-underline"></div>
-                <p>
-                  W konferencji biorą udział uczestnicy z różnych uczelni i ośrodków
-                  akademickich z całej Polski.
-                </p>
+               <div className="intibs-content">
+
+                <div className="intibs-text">
+                  <h2>Wycieczka do INTiBS</h2>
+                  <div className="section-underline"></div>
+
+                  <p>
+                   W piątek przed rozpoczęciem konferencji odbędzie się wycieczka
+                  do Instytutu Niskich Temperatur i Badań Strukturalnych PAN
+                  we Wrocławiu.
+                  </p>
+
+                  <p>
+                  Liczba miejsc jest ograniczona. Chęć udziału można zaznaczyć
+                  podczas wypełniania formularza zgłoszeniowego.
+                  </p>
+                </div>
+
+                <div className="intibs-image">
+                  <a
+                    href="https://www.intibs.pl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Przejdź na stronę INTiBS PAN"
+                  >
+                    <img src={wycieczkaImg} alt="Budynek INTiBS PAN we Wrocławiu" />
+                  </a>
+                </div>
+
               </div>
+            </div>
 
               <div className={`cube-face cube-back ${aboutFace === 2 ? "active" : ""}`}>
                 <h2>Dla kogo</h2>

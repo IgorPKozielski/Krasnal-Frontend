@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { postFormData } from '../api';
 
-function Register() {
+function Register({ setAboutFace }) {
   const initialFormData = {
     first_name: "",
     last_name: "",
@@ -14,8 +14,10 @@ function Register() {
     abstract_file_later: false,
     trip_to_intibs: false,
     diet: "",
+    has_allergies: false,
     application_requirements: "",
     attendance_days: [],
+  
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -24,14 +26,29 @@ function Register() {
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
 
+    if (name === "presentation_type") {
+      setFormData((prev) => ({
+        ...prev,
+        presentation_type: value,
+        ...(value === "none" || value === ""
+         ? {
+              abstract_file: null,
+             abstract_file_later: false,
+           }
+         : {}),
+     }));
+
+     return;
+   }
+
     setFormData((prev) => ({
-      ...prev,
-      [name]:
-        type === "file"
+     ...prev,
+     [name]:
+       type === "file"
           ? files[0]
           : type === "checkbox"
-            ? checked
-            : value,
+           ? checked
+           : value,
     }));
   };
 
@@ -49,17 +66,31 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.abstract_file && !formData.abstract_file_later) {
+    const isPresenting =
+      formData.presentation_type === "presentation" ||
+      formData.presentation_type === "poster";
+
+    if (
+      isPresenting &&
+      !formData.abstract_file &&
+      !formData.abstract_file_later
+    ) {
       setStatus('Dodaj PDF z abstraktem albo zaznacz, że podeślesz go później.');
       return;
     }
-
+    if (
+      formData.has_allergies &&
+      !formData.application_requirements.trim()
+    ) {
+      setStatus('Zaznaczyłeś/aś alergie — opisz je proszę w polu „Uwagi”.');
+      return;
+    }
     if (formData.attendance_days.length === 0) {
       setStatus('Zaznacz, kiedy będziesz obecny/a.');
       return;
     }
 
-    setStatus('Sending...');
+    setStatus('Wysyłanie zgłoszenia...');
 
     try {
       const fd = new FormData();
@@ -73,6 +104,7 @@ function Register() {
       fd.append('abstract_file_later', formData.abstract_file_later);
       fd.append('trip_to_intibs', formData.trip_to_intibs);
       fd.append('diet', formData.diet);
+      fd.append('has_allergies', formData.has_allergies);
       fd.append('application_requirements', formData.application_requirements);
       formData.attendance_days.forEach(day => fd.append('attendance_days', day));
       if (formData.abstract_file) {
@@ -80,17 +112,23 @@ function Register() {
       }
 
       await postFormData('/register', fd);
-      setStatus('Registration successful!');
+      setStatus('Zgłoszenie zostało wysłane pomyślnie!');
       setFormData(initialFormData);
-    } catch (err) {
-      setStatus('Error: ' + err.message);
+   } catch (err) {
+     if (err.status === 409) {
+      setStatus(
+        'Z tego adresu e-mail zostało już wysłane zgłoszenie. Jeśli chcesz zmienić dane w swoim zgłoszeniu lub masz pytania, napisz do nas na krasnal@pwr.edu.pl. W temacie wiadomości wpisz „Zmiana danych w zgłoszeniu” i opisz, co chciałbyś/chciałabyś zmienić.'
+      );
+    } else {
+      setStatus('Wystąpił błąd podczas wysyłania zgłoszenia: ' + err.message);
     }
+  }
   };
-
   return (
     <section className="register" id="zglos-sie">
       <div className="register-container">
         <h2>Zgłoszenia</h2>
+        <h3> (na razie nie prowadzimy zgłoszeń!)</h3>
 
         <form onSubmit={handleSubmit} className="register-form">
           <input
@@ -162,23 +200,47 @@ function Register() {
 
           <div className="form-section full-width">
             <p className="form-section-title">
-              Wymagania dotyczące zakwaterowania i organizacji pobytu
+              Czy masz jakieś alergie?
               <span className="optional-badge">Opcjonalne</span>
             </p>
+
+            <label className="form-check">
+              <input
+                type="checkbox"
+                name="has_allergies"
+                checked={formData.has_allergies}
+                onChange={handleChange}
+              />
+              Tak, mam alergie.
+            </label>
+
+            <p className="form-section-title">
+              Uwagi
+              {formData.has_allergies ? (
+                <span className="required-badge">Wymagane</span>
+              ) : (
+                <span className="optional-badge">Opcjonalne</span>
+              )}
+              </p>
 
             <textarea
               name="application_requirements"
               value={formData.application_requirements}
               onChange={handleChange}
-              placeholder="Np. pokój jednoosobowy, alergie, szczególne potrzeby zdrowotne, preferencje dotyczące zakwaterowania..."
+              placeholder="Jeśli zaznaczyłeś/aś alergie, opisz je tutaj. Możesz również podać inne istotne uwagi organizacyjne."
               maxLength={500}
               rows={5}
+              required={formData.has_allergies}
             />
 
-            <small>Opcjonalnie. Maksymalnie 500 znaków.</small>
-          </div>
+             <small>
+              Maksymalnie 500 znaków. W przypadku zaznaczenia alergii opisz je w tym polu.
+             </small>
+            </div>
 
-          <div className="form-section full-width">
+          {(formData.presentation_type === "presentation" ||
+            formData.presentation_type === "poster") && (
+            <div className="form-section full-width">
             <p className="form-section-title">
               Abstrakt
               <span className="required-badge">Wymagane</span>
@@ -197,14 +259,15 @@ function Register() {
 
             <label className="form-check">
               <input
-                type="checkbox"
-                name="abstract_file_later"
-                checked={formData.abstract_file_later}
-                onChange={handleChange}
-              />
-              Abstrakt podeślę później
-            </label>
-          </div>
+              type="checkbox"
+              name="abstract_file_later"
+              checked={formData.abstract_file_later}
+              onChange={handleChange}
+            />
+            Abstrakt podeślę później drogą mailową (krasnal@pwr.edu.pl)
+          </label>
+        </div>
+        )}
 
           <div className="form-section full-width">
             <p className="form-section-title">
@@ -256,28 +319,36 @@ function Register() {
                 checked={formData.trip_to_intibs}
                 onChange={handleChange}
               />
-              Chcę zapisać się na wycieczkę do INTiBS w piątek przed rozpoczęciem konferencji.
+              Chcę zapisać się na wycieczkę do INTiBS w piątek przed rozpoczęciem konferencji.{" "}
+              <a
+                 href="#o-konferencji"
+                 onClick={() => setAboutFace(1)}
+              >
+               Więcej informacji
+              </a>
             </label>
           </div>
+            <div className="form-section full-width">
+              <p className="form-section-title">
+                RODO
+                <span className="required-badge">Wymagane</span>
+              </p>
 
-          <div className="form-section full-width">
-            <p className="form-section-title">
-              RODO
-              <span className="required-badge">Wymagane</span>
-            </p>
+              <label className="form-check">
+                <input
+                  type="checkbox"
+                  name="rodo"
+                  checked={formData.rodo}
+                  onChange={handleChange}
+                  required
+                />
 
-            <label className="form-check">
-              <input
-                type="checkbox"
-                name="rodo"
-                checked={formData.rodo}
-                onChange={handleChange}
-                required
-              />
-              Akceptuję politykę RODO.
-            </label>
-          </div>
-
+                <span>
+                  Zapoznałem/am się z informacją dotyczącą przetwarzania moich danych osobowych w związku z rejestracją i udziałem w konferencji KRASNAL 2026.
+                </span>
+              </label>
+            </div>
+          
           <button type="submit" className="register-link full-width">
             Wyślij zgłoszenie
           </button>

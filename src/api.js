@@ -12,10 +12,16 @@ export const postData = async (endpoint, data) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
+
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error || errorData.message || 'Network response was not ok');
+    throw new Error(
+      errorData.error ||
+      errorData.message ||
+      'Network response was not ok'
+    );
   }
+
   return response.json();
 };
 
@@ -24,9 +30,20 @@ export const postFormData = async (endpoint, formData) => {
     method: 'POST',
     body: formData,
   });
+
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error || errorData.message || 'Network response was not ok');
+
+    const error = new Error(
+      errorData.error ||
+      errorData.message ||
+      'Network response was not ok'
+    );
+
+    error.status = response.status;
+
+    throw error;
   }
+
   return response.json();
 };

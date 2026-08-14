@@ -24,7 +24,7 @@ function App() {
       <About aboutFace={aboutFace} setAboutFace={setAboutFace} />
       <Program programFace={programFace} setProgramFace={setProgramFace} />
       <Sponsors />
-      <Register />
+      <Register setAboutFace={setAboutFace} />
       <Contact />
       <Footer />
     </div>
