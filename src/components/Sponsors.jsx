@@ -39,7 +39,7 @@ function Sponsors() {
   return (
     <section id="sponsorzy" className="sponsors-section">
       <div className="container">
-        <h2>Patronaty</h2>
+        <h2>Patronaty i partnerzy</h2>
         <div className="section-underline"></div>
 
         <p className="sponsors-description">
@@ -64,33 +64,7 @@ function Sponsors() {
         </a>
           ))}
         </div>
-        <h2 className="sponsors-subtitle">Sponsorzy i partnerzy</h2>
-        <div className="sponsors-grid">
-          {/*
-          <div className="sponsor-card">Logo</div>
-          <div className="sponsor-card">Logo</div>
-          <div className="sponsor-card">Logo</div>
-          <div className="sponsor-card">Logo</div>
-          */}
-          {sponsors && sponsors.length > 0 ? sponsors.map(sponsor => (
-            <div key={sponsor.id} className="sponsor-card">
-              <a
-                href={sponsor.website}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={sponsor.logo_url}
-                  alt={sponsor.name}
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-                <p>{sponsor.name}</p>
-              </a>
-            </div>
-          )) : (
-            <p>Sponsorzy wkrótce...</p>
-          )}
-        </div>
+        
       </div>
     </section>
   );

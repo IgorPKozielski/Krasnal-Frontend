@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import nablaLogo from "../assets/Logos/logo-nabla.png";
 import wycieczkaImg from "../assets/wycieczka.jpg";
+import wycieczkaWcssImg from "../assets/wycieczka1.jpg";
 function About({ aboutFace, setAboutFace }) {
   useEffect(() => {
     const section = document.getElementById("o-konferencji");
@@ -33,58 +34,95 @@ function About({ aboutFace, setAboutFace }) {
               <div className={`cube-face cube-front ${aboutFace === 0 ? "active" : ""}`}>
                 <h2>O konferencji</h2>
                 <div className="section-underline"></div>
-                <p>
-                  KRASNAL to ogólnopolska konferencja fizyków, skupiająca studentów,
-                  doktorantów i naukowców.
+                <p className="about-copy">
+                   KRASNAL to ogólnopolska konferencja studencka poświęcona fizyce i naukom
+    pokrewnym. Wydarzenie daje uczestnikom możliwość zaprezentowania własnych
+    badań, udziału w prazentacjach i sesjach posterowych oraz wymiany doświadczeń
+    z osobami z różnych ośrodków akademickich.
                 </p>
               </div>
 
               <div className={`cube-face cube-right ${aboutFace === 1 ? "active" : ""}`}>
-               <div className="intibs-content">
+  <h2>Wycieczki</h2>
+  <div className="section-underline"></div>
 
-                <div className="intibs-text">
-                  <h2>Wycieczka do INTiBS</h2>
-                  <div className="section-underline"></div>
+  <div className="trips-content">
 
-                  <p>
-                   W piątek przed rozpoczęciem konferencji odbędzie się wycieczka
-                  do Instytutu Niskich Temperatur i Badań Strukturalnych PAN
-                  we Wrocławiu.
-                  </p>
+    <div className="trip-card">
+      <div className="trip-text">
+        <h3>INTiBS PAN</h3>
 
-                  <p>
-                  Liczba miejsc jest ograniczona. Chęć udziału można zaznaczyć
-                  podczas wypełniania formularza zgłoszeniowego.
-                  </p>
-                </div>
+        <p>
+          W piątek przed rozpoczęciem konferencji odbędzie się wycieczka
+          do Instytutu Niskich Temperatur i Badań Strukturalnych PAN
+          we Wrocławiu.
+        </p>
 
-                <div className="intibs-image">
-                  <a
-                    href="https://www.intibs.pl/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Przejdź na stronę INTiBS PAN"
-                  >
-                    <img src={wycieczkaImg} alt="Budynek INTiBS PAN we Wrocławiu" />
-                  </a>
-                </div>
+      </div>
 
-              </div>
-            </div>
+      <a
+        href="https://www.intibs.pl/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Przejdź na stronę INTiBS PAN"
+      >
+        <img
+          src={wycieczkaImg}
+          alt="Budynek INTiBS PAN we Wrocławiu"
+          className="trip-image"
+        />
+      </a>
+    </div>
+
+
+    <div className="trip-card">
+      <div className="trip-text">
+        <h3>WCSS</h3>
+
+        <p>
+          W ramach konferencji odbędzie się również wycieczka do
+          Wrocławskiego Centrum Sieciowo-Superkomputerowego, obejmująca
+          oprowadzenie po superkomputerach LEM i Odra 5.
+        </p>
+      </div>
+
+      <a
+        href="https://wcss.pl/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Przejdź na stronę WCSS"
+      >
+        <img
+          src={wycieczkaWcssImg}
+          alt="Wrocławskie Centrum Sieciowo-Superkomputerowe"
+          className="trip-image"
+        />
+      </a>
+    </div>
+  </div>
+<p className="trips-note">
+  Liczba miejsc na wycieczki jest ograniczona. Chęć udziału można zaznaczyć
+  podczas wypełniania formularza zgłoszeniowego.
+</p>
+  
+</div>
 
               <div className={`cube-face cube-back ${aboutFace === 2 ? "active" : ""}`}>
                 <h2>Dla kogo</h2>
                 <div className="section-underline"></div>
-                <p>
-                  Wydarzenie jest skierowane do studentów, doktorantów, młodych badaczy
-                  i wszystkich pasjonatów fizyki.
+                <p className="about-copy">
+                 Konferencja jest skierowana przede wszystkim do studentów, doktorantów
+    i młodych badaczy związanych z fizyką oraz dziedzinami pokrewnymi.
+    Zapraszamy zarówno osoby chcące zaprezentować wyniki swojej pracy,
+    jak i uczestników zainteresowanych poznaniem aktualnych tematów badań
+    i nawiązaniem nowych kontaktów naukowych.
                 </p>
               </div>
 
               <div className={`cube-face cube-left ${aboutFace === 3 ? "active" : ""}`}>
                 <h2>Organizatorzy</h2>
                 <div className="section-underline"></div>
-                <p>
+                <p className="about-copy">
                   Konferencja jest przygotowywana przez Koło Naukowe Fizyków Nabla działające przy Politechnice Wrocławskiej.
                 </p>
 

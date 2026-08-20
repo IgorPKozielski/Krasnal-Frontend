@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../api';
-
+import mpkDworzec from '../assets/MPK-z-dworca.png';
+import pasazPwr from '../assets/Pasaz-PWR.png';
 function Program({ programFace, setProgramFace }) {
   const [schedule, setSchedule] = useState([]);
   const [speakers, setSpeakers] = useState([]);
@@ -53,31 +54,45 @@ function Program({ programFace, setProgramFace }) {
   <h2>Jak dojechać?</h2>
   <div className="section-underline"></div>
 
-  <div className="program-scroll">
-    <div className="program-detail">
-      <h3>Z dworca głównego</h3>
-      <p>
-        Autobusy: 145, 146<br />
-        Tramwaje: 2, 4
-      </p>
+  <div className="travel-maps">
+    <div className="travel-map-item">
+      <a
+        href={mpkDworzec}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="travel-map-link"
+      >
+        <img
+          src={mpkDworzec}
+          alt="Dojazd z Dworca Głównego komunikacją miejską"
+          className="travel-map"
+        />
+      </a>
+
+      <p>Z Dworca Głównego</p>
     </div>
 
-    <div className="program-detail">
-      <p>
-  Polecamy skorzystać z aplikacji{" "}
-  <a
-    href="https://jakdojade.pl"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Jakdojade
-  </a>
-  , aby sprawdzić aktualne połączenia i ewentualne zmiany w komunikacji miejskiej.
-    </p>
+    <div className="travel-map-item">
+      <a
+        href={pasazPwr}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="travel-map-link"
+      >
+        <img
+          src={pasazPwr}
+          alt="Dojście z Pasażu Grunwaldzkiego do budynku A-1"
+          className="travel-map"
+        />
+      </a>
+
+      <p>Z Pasażu Grunwaldzkiego do A-1</p>
     </div>
   </div>
+  <p className="travel-map-hint">
+  Kliknij mapę, aby powiększyć zdjęcie.
+</p>
 </div>
-
               <div className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}>
                 <h2>Mapka sal</h2>
                 <div className="section-underline"></div>

@@ -78,13 +78,14 @@ function Register({ setAboutFace }) {
       setStatus('Dodaj PDF z abstraktem albo zaznacz, że podeślesz go później.');
       return;
     }
+    /*
     if (
       formData.has_allergies &&
       !formData.application_requirements.trim()
     ) {
       setStatus('Zaznaczyłeś/aś alergie — opisz je proszę w polu „Uwagi”.');
       return;
-    }
+    }*/
     if (formData.attendance_days.length === 0) {
       setStatus('Zaznacz, kiedy będziesz obecny/a.');
       return;
@@ -198,7 +199,7 @@ function Register({ setAboutFace }) {
             <option value="vege">Wegetariańska</option>
           </select>
 
-          <div className="form-section full-width">
+          {/*<div className="form-section full-width">
             <p className="form-section-title">
               Czy masz jakieś alergie?
               <span className="optional-badge">Opcjonalne</span>
@@ -237,7 +238,7 @@ function Register({ setAboutFace }) {
               Maksymalnie 500 znaków. W przypadku zaznaczenia alergii opisz je w tym polu.
              </small>
             </div>
-
+*/}
           {(formData.presentation_type === "presentation" ||
             formData.presentation_type === "poster") && (
             <div className="form-section full-width">
@@ -269,6 +270,25 @@ function Register({ setAboutFace }) {
         </div>
         )}
 
+<div className="form-section full-width">
+  <p className="form-section-title">
+    Uwagi organizacyjne
+    <span className="optional-badge">Opcjonalne</span>
+  </p>
+
+  <textarea
+    name="application_requirements"
+    value={formData.application_requirements}
+    onChange={handleChange}
+    placeholder="Jeśli chcesz przekazać nam dodatkowe informacje istotne przy organizacji Twojego udziału w konferencji, np. dotyczące wyżywienia lub innych potrzeb organizacyjnych, wpisz je tutaj."
+    maxLength={500}
+    rows={5}
+  />
+
+  <small>
+    Maksymalnie 500 znaków. Pole jest opcjonalne.
+  </small>
+</div>
           <div className="form-section full-width">
             <p className="form-section-title">
               Kiedy będziesz obecny?

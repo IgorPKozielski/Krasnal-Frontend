@@ -387,8 +387,7 @@
   display: inline-block;
 }
 
-.about h2::after,
-.program h2::after,
+
 .register h2::after,
 .contact h2::after {
   content: "";
@@ -492,7 +491,7 @@
 .sponsors-description {
   max-width: 700px;
   margin: 0 auto 50px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #274b63;
   line-height: 1.6;
 }
@@ -1319,5 +1318,222 @@
 
   .sponsors-subtitle {
     font-size: 1.6rem;
+  }
+}
+.travel-maps {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.travel-map-item {
+  flex: 1;
+  max-width: 48%;
+  text-align: center;
+}
+
+.travel-map-link {
+  display: block;
+  width: 100%;
+}
+
+.travel-map {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+.travel-map-item p {
+  margin: 8px 0 0;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.program-face .travel-map-hint {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .travel-maps {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .travel-map-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .travel-map {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .travel-map-item p {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .program-face .travel-map-hint {
+    margin-top: 8px;
+    font-size: 0.75rem;
+  }
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #315766;
+  font-size: 1rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-link svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.contact-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.75;
+}
+@media (max-width: 768px) {
+  .contact-links {
+    gap: 16px 22px;
+    margin-top: 18px;
+  }
+
+  .contact-link {
+    font-size: 0.9rem;
+  }
+
+  .contact-link svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+.trips-content {
+  display: flex;
+  gap: 36px;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.trip-card {
+  flex: 1;
+  max-width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-text {
+  flex: 1;
+}
+
+.trip-card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 14px;
+  color: #001722;
+}
+
+.trip-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.trip-card a {
+  display: block;
+  margin-top: auto;
+}
+
+.trip-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.trip-image:hover {
+  transform: scale(1.02);
+}
+@media (max-width: 768px) {
+  .trips-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .trip-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .trip-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .trip-card p {
+    font-size: 0.9rem;
+  }
+
+  .trip-image {
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+  }
+}
+.about .cube-face .trips-note {
+  margin: 18px auto 0;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 700px;
+}
+@media (max-width: 768px) {
+  .about .cube-face .trips-note {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+}
+.about .cube-face .about-copy {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .about .cube-face .about-copy {
+    font-size: 1.0rem;
+    line-height: 1.5;
+    padding: 0 10px;
   }
 }

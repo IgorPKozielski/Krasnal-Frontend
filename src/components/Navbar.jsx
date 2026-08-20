@@ -32,7 +32,7 @@ function Navbar({ setAboutFace, setProgramFace }) {
            </button>
             <div className="dropdown-menu">
               <button onClick={() => goToAboutFace(0)}>O konferencji</button>
-              <button onClick={() => goToAboutFace(1)}>Wycieczka</button>
+              <button onClick={() => goToAboutFace(1)}>Wycieczki</button>
               <button onClick={() => goToAboutFace(2)}>Dla kogo</button>
               <button onClick={() => goToAboutFace(3)}>Organizatorzy</button>
             </div>
@@ -50,7 +50,7 @@ function Navbar({ setAboutFace, setProgramFace }) {
             </div>
           </div>
 
-          <a href="#sponsorzy">Sponsorzy</a>
+          <a href="#sponsorzy">Partnerzy</a>
           <a href="#zglos-sie">Zgłoś się</a>
           <a href="#kontakt">Kontakt</a>
         </div>
