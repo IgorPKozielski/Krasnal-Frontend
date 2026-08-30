@@ -1524,7 +1524,7 @@
   }
 }
 .about .cube-face .about-copy {
-  font-size: 1.8rem;
+  font-size: 1.35rem;
   line-height: 1.6;
   max-width: 900px;
   margin-left: auto;
@@ -1535,5 +1535,87 @@
     font-size: 1.0rem;
     line-height: 1.5;
     padding: 0 10px;
+  }
+}
+.trips-section {
+  gap: 0.7rem;
+}
+
+.trips-info {
+  margin-bottom: 0.2rem;
+}
+
+.trip-priority {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.trip-priority-title {
+  margin: 0 0 0.15rem 0;
+}
+
+.trip-priority .form-check {
+  margin: 0;
+}
+
+.trips-more {
+  margin-top: 0.2rem;
+}
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  width: 85%;
+  max-width: 1050px;
+  margin: 2rem auto 0;
+  align-items: start;
+}
+
+.speaker-card {
+  text-align: center;
+}
+
+.speaker-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.speaker-card h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.35rem;
+}
+
+.speaker-card p {
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 470px;
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .speaker-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .speaker-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .speaker-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: left;
   }
 }

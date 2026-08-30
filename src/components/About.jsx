@@ -82,7 +82,7 @@ function About({ aboutFace, setAboutFace }) {
         <p>
           W ramach konferencji odbędzie się również wycieczka do
           Wrocławskiego Centrum Sieciowo-Superkomputerowego, obejmująca
-          oprowadzenie po superkomputerach LEM i Odra 5.
+          oprowadzenie po superkomputerze LEM i kwantowym komputerze Odra 5.
         </p>
       </div>
 

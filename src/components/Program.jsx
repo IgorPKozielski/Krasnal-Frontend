@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { fetchData } from '../api';
 import mpkDworzec from '../assets/MPK-z-dworca.png';
 import pasazPwr from '../assets/Pasaz-PWR.png';
+import mierzejImg from '../assets/mierzej.png';
+import ciorgaImg from '../assets/ciorga.png';
 function Program({ programFace, setProgramFace }) {
   const [schedule, setSchedule] = useState([]);
   const [speakers, setSpeakers] = useState([]);
@@ -102,23 +104,51 @@ function Program({ programFace, setProgramFace }) {
                 </p>
               </div>
 
-              <div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
-                <h2>Prelegenci</h2>
-                <div className="section-underline"></div>
-                {/*
-                <p>
-                  Tutaj znajdą się informacje o prelegentach, ich afiliacjach
-                  oraz tematach wystąpień.
-                </p>
-                */}
-                <div className="speakers-list">
-                  {speakers && speakers.length > 0 ? speakers.map(speaker => (
-                    <div key={speaker.id} className="speaker-mini">
-                      <strong>{speaker.name}</strong> - {speaker.talk_title}
-                    </div>
-                  )) : <p>Prelegenci wkrótce...</p>}
-                </div>
-              </div>
+             <div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
+  <h2>Prelegenci</h2>
+  <div className="section-underline"></div>
+
+  <div className="speakers-grid">
+
+    <div className="speaker-card">
+      <img
+        src={mierzejImg}
+        alt="Prof. Marcin Mierzejewski"
+        className="speaker-photo"
+      />
+
+      <h3>Prof. Marcin Mierzejewski</h3>
+
+      <p>
+        jest specjalistą w dziedzinie teoretycznej
+        fizyki materii skondensowanej i układów silnie skorelowanych.
+        Jego badania koncentrują się na dynamice nierównowagowej,
+        transporcie kwantowym oraz właściwościach niskowymiarowych układów
+        kwantowych, łącząc zaawansowane metody analityczne i numeryczne.
+      </p>
+    </div>
+
+    <div className="speaker-card">
+      <img
+        src={ciorgaImg}
+        alt="Prof. Mariusz Ciorga"
+        className="speaker-photo"
+      />
+
+      <h3>Prof. Mariusz Ciorga</h3>
+
+      <p>
+        zajmuje się eksperymentalną fizyką
+        półprzewodników, transportem kwantowym i spintroniką.
+        Jego badania obejmują transport spinowy oraz właściwości nowoczesnych
+        nanostruktur i materiałów dwuwymiarowych, ze szczególnym
+        uwzględnieniem zjawisk związanych ze spinem i oddziaływaniem
+        spin-orbita.
+      </p>
+    </div>
+
+  </div>
+</div>
             </div>
           </div>
 

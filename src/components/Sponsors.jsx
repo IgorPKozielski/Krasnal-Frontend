@@ -5,6 +5,7 @@ import pwrLogo from '../assets/Logos/logo-pwr.png';
 import ptfLogo from '../assets/Logos/logo-ptf.png';
 import solarisLogo from '../assets/Logos/logo-solaris.png';
 import quantumAILogo from '../assets/Logos/logo-quantumAI.jpg';
+import pssfLogo from "../assets/Logos/pssf-logo.png";
 const patronages = [
   {
     name: 'Wydział Podstawowych Problemów Techniki PWr',
@@ -25,6 +26,11 @@ const patronages = [
     name: 'Quantum AI Foundation',
     logo: quantumAILogo,
     website: 'https://www.qaif.org/',
+  },
+  {
+    name: 'Polskie Stowarzyszenie Studentów Fizyki',
+    logo: pssfLogo,
+    website: 'https://pssf.edu.pl/',
   },
 ];
 function Sponsors() {

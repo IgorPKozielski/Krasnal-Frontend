@@ -12,7 +12,8 @@ function Register({ setAboutFace }) {
     presentation_type: "",
     abstract_file: null,
     abstract_file_later: false,
-    trip_to_intibs: false,
+    trip_priority_1: "",
+    trip_priority_2: "",
     diet: "",
     has_allergies: false,
     application_requirements: "",
@@ -62,7 +63,33 @@ function Register({ setAboutFace }) {
         : prev.attendance_days.filter((day) => day !== value),
     }));
   };
+const handleTripPriorityChange = (priority, value) => {
+  setFormData((prev) => {
+    const otherPriority =
+      priority === "trip_priority_1"
+        ? "trip_priority_2"
+        : "trip_priority_1";
 
+    // Jeśli klikamy już zaznaczoną opcję — odznacz ją
+    if (prev[priority] === value) {
+      return {
+        ...prev,
+        [priority]: "",
+      };
+    }
+
+    // Zaznacz wybraną opcję.
+    // Jeśli ta sama wycieczka była w drugim priorytecie,
+    // automatycznie usuń ją stamtąd.
+    return {
+      ...prev,
+      [priority]: value,
+      ...(prev[otherPriority] === value
+        ? { [otherPriority]: "" }
+        : {}),
+    };
+  });
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -103,7 +130,8 @@ function Register({ setAboutFace }) {
       fd.append('rodo', formData.rodo);
       fd.append('presentation_type', formData.presentation_type);
       fd.append('abstract_file_later', formData.abstract_file_later);
-      fd.append('trip_to_intibs', formData.trip_to_intibs);
+      fd.append('trip_priority_1', formData.trip_priority_1);
+      fd.append('trip_priority_2', formData.trip_priority_2);
       fd.append('diet', formData.diet);
       fd.append('has_allergies', formData.has_allergies);
       fd.append('application_requirements', formData.application_requirements);
@@ -326,28 +354,95 @@ function Register({ setAboutFace }) {
             </label>
           </div>
 
-          <div className="form-section full-width">
-            <p className="form-section-title">
-              Wycieczka do INTiBS
-              <span className="optional-badge">Opcjonalne</span>
-            </p>
+  <div className="form-section full-width trips-section">
+  <p className="form-section-title">
+    Wycieczki
+    <span className="optional-badge">Opcjonalne</span>
+  </p>
 
-            <label className="form-check">
-              <input
-                type="checkbox"
-                name="trip_to_intibs"
-                checked={formData.trip_to_intibs}
-                onChange={handleChange}
-              />
-              Chcę zapisać się na wycieczkę do INTiBS w piątek przed rozpoczęciem konferencji.{" "}
-              <a
-                 href="#o-konferencji"
-                 onClick={() => setAboutFace(1)}
-              >
-               Więcej informacji
-              </a>
-            </label>
-          </div>
+  <small className="trips-info">
+    Wycieczki do WCSS i INTiBS odbywają się w tym samym czasie.
+    Jeśli chcesz wziąć udział, zaznacz swoje preferencje w kolejności priorytetów.
+  </small>
+
+  <div className="trip-priority">
+    <p className="form-section-title trip-priority-title">
+      Priorytet 1
+    </p>
+
+    <label className="form-check">
+      <input
+        type="radio"
+        name="trip_priority_1"
+        value="wcss"
+        checked={formData.trip_priority_1 === "wcss"}
+        onClick={() =>
+          handleTripPriorityChange("trip_priority_1", "wcss")
+        }
+        onChange={() => {}}
+      />
+      WCSS
+    </label>
+
+    <label className="form-check">
+      <input
+        type="radio"
+        name="trip_priority_1"
+        value="intibs"
+        checked={formData.trip_priority_1 === "intibs"}
+        onClick={() =>
+          handleTripPriorityChange("trip_priority_1", "intibs")
+        }
+        onChange={() => {}}
+      />
+      INTiBS
+    </label>
+  </div>
+
+  <div className="trip-priority">
+    <p className="form-section-title trip-priority-title">
+      Priorytet 2
+    </p>
+
+    <label className="form-check">
+      <input
+        type="radio"
+        name="trip_priority_2"
+        value="wcss"
+        checked={formData.trip_priority_2 === "wcss"}
+        onClick={() =>
+          handleTripPriorityChange("trip_priority_2", "wcss")
+        }
+        onChange={() => {}}
+        disabled={formData.trip_priority_1 === "wcss"}
+      />
+      WCSS
+    </label>
+
+    <label className="form-check">
+      <input
+        type="radio"
+        name="trip_priority_2"
+        value="intibs"
+        checked={formData.trip_priority_2 === "intibs"}
+        onClick={() =>
+          handleTripPriorityChange("trip_priority_2", "intibs")
+        }
+        onChange={() => {}}
+        disabled={formData.trip_priority_1 === "intibs"}
+      />
+      INTiBS
+    </label>
+  </div>
+
+  <a
+    href="#o-konferencji"
+    onClick={() => setAboutFace(1)}
+    className="trips-more"
+  >
+    Więcej informacji o wycieczkach
+  </a>
+</div>
             <div className="form-section full-width">
               <p className="form-section-title">
                 RODO
