@@ -162,17 +162,6 @@ const handleTripPriorityChange = (priority, value) => {
 
 
 
-        <div className="registration-locked">
-
-  <div
-    className="registration-locked__form"
-    inert=""
-    aria-hidden="true"
-  >
-
-
-  
-
         <form onSubmit={handleSubmit} className="register-form">
           <input
             type="text"
@@ -485,19 +474,7 @@ const handleTripPriorityChange = (priority, value) => {
 
 
 
- </div>
 
-  <div className="registration-locked__overlay">
-    <div className="registration-locked__message">
-      <h2>Zapisy chwilowo niedostępne</h2>
-      <p>Formularz rejestracyjny zostanie uruchomiony wkrótce.</p>
-    </div>
-  </div>
-
-
-
-
-</div>
         {status && <p className="status-message">{status}</p>}
       </div>
     </section>
