@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../api';
-import mpkDworzec from '../assets/MPK-z-dworca.png';
+import mpkDworzec from '../assets/mpk-z-dworca.png';
 import pasazPwr from '../assets/Pasaz-PWR.png';
 import mierzejImg from '../assets/mierzej.png';
 import ciorgaImg from '../assets/ciorga.png';
