@@ -409,17 +409,17 @@
 }
 
 .program {
-  padding: 90px 20px;
+  padding: 90px 20px 170px;
   background-color: #e8f1f0;
 }
 
 .program-container {
-  max-width: 1400px;
+  width: 98vw;
+  max-width: 1600px;
   margin: 0 auto;
   text-align: center;
   position: relative;
 }
-
 .register {
   padding: 90px 20px;
   background-color: #e8f1f0;
@@ -1722,4 +1722,382 @@
   .registration-locked__message p {
     font-size: 14px;
   }
+}
+/* ===== PRELEGENCI ===== */
+
+
+.program-face.cube-left {
+  min-height: 600px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.program-face.cube-left .speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 30px auto 0;
+  align-items: start;
+}
+
+.program-face.cube-left .speaker-card {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  text-align: center;
+}
+
+.program-face.cube-left .speaker-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.program-face.cube-left .speaker-card h3 {
+  margin: 0 0 14px;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.program-face.cube-left .speaker-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+  hyphens: auto;
+}
+
+.program-face.cube-left .speaker-photo-zaleski {
+  object-fit: contain;
+  object-position: center top;
+  background: #000;
+}
+
+
+/* ===== TELEFON ===== */
+
+@media (max-width: 768px) {
+
+  .program-face.cube-left {
+    min-height: 600px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+  }
+
+  .program-face.cube-left .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 24px;
+    padding-bottom: 30px;
+  }
+
+  .program-face.cube-left .speaker-card {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .program-face.cube-left .speaker-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .program-face.cube-left .speaker-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .program-face.cube-left .speaker-card p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+}
+/* ==================================================
+   PROGRAM - HARMONOGRAM GODZINOWY
+   ================================================== */
+
+.program-face.cube-front {
+
+  min-height: 660px;
+  padding: 22px 18px 28px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+.program-face.cube-front h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.program-face.cube-front .section-underline {
+  margin-bottom: 14px;
+}
+
+
+/* ===== DESKTOP ===== */
+
+.timeline-desktop {
+  width: 100%;
+  max-width: 1280px;
+  margin: 10px auto 0;
+
+  display: grid;
+  grid-template-columns: 62px repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto 518px;
+
+  column-gap: 8px;
+}
+
+
+/* Nagłówki dni */
+
+.timeline-header-empty {
+  height: 44px;
+}
+
+.timeline-day-header {
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  background: #df8bb3;
+  color: #082632;
+
+  border-radius: 10px 10px 0 0;
+
+  font-size: 0.92rem;
+}
+
+.timeline-day-header strong {
+  font-size: 0.95rem;
+}
+
+.timeline-day-header span {
+  font-weight: 700;
+}
+
+
+/* ===== OŚ CZASU ===== */
+
+.timeline-time-axis {
+  position: relative;
+  height: 518px;
+}
+
+.timeline-time-label {
+  position: absolute;
+  right: 6px;
+
+  transform: translateY(-50%);
+
+  font-size: 0.66rem;
+  line-height: 1;
+  font-weight: 700;
+
+  color: #173d47;
+
+  white-space: nowrap;
+}
+
+
+/* ===== KOLUMNA DNIA ===== */
+
+.timeline-day-track {
+  position: relative;
+  height: 518px;
+
+  border-left: 1px solid rgba(7, 47, 58, 0.13);
+  border-right: 1px solid rgba(7, 47, 58, 0.13);
+  border-bottom: 1px solid rgba(7, 47, 58, 0.13);
+
+  background:
+  repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.20) 0,
+    rgba(255, 255, 255, 0.20) 27px,
+    rgba(7, 47, 58, 0.10) 27px,
+    rgba(7, 47, 58, 0.10) 28px
+  );
+
+  box-sizing: border-box;
+}
+
+
+/* ===== WYDARZENIA ===== */
+
+.timeline-event {
+  position: absolute;
+
+  left: 5px;
+  right: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 7px;
+
+  box-sizing: border-box;
+  border-radius: 6px;
+
+  text-align: center;
+
+  font-size: 0.77rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  overflow: hidden;
+}
+
+
+/* dwa wydarzenia równolegle */
+
+.timeline-event-left {
+  left: 5px;
+  right: calc(50% + 3px);
+}
+
+.timeline-event-right {
+  left: calc(50% + 3px);
+  right: 5px;
+}
+
+.timeline-event-full {
+  left: 5px;
+  right: 5px;
+}
+
+
+/* ===== KOLORY ===== */
+
+.timeline-event-oral {
+  background: #086466;
+  color: #ffffff;
+}
+
+.timeline-event-trip,
+.timeline-event-special {
+  background: #479dab;
+  color: #ffffff;
+}
+
+.timeline-event-lecture {
+  background: #b83e78;
+  color: #ffffff;
+}
+
+.timeline-event-ceremony {
+  background: #692878;
+  color: #ffffff;
+}
+
+.timeline-event-break {
+  background: #d8cbea;
+  color: #3d3151;
+}
+
+
+/* Desktop / mobile */
+
+.timeline-mobile {
+  display: none;
+}
+
+
+/* ==================================================
+   TELEFON
+   ================================================== */
+
+@media (max-width: 768px) {
+
+  .program-face.cube-front {
+    min-height: 780px;
+    padding: 22px 12px 30px;
+    overflow-y: auto;
+  }
+
+  .timeline-desktop {
+    display: none;
+  }
+
+  .timeline-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+
+  /* Zakładki */
+
+  .program-day-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .program-day-tabs button {
+    padding: 8px 3px;
+
+    border: 1px solid rgba(7, 47, 58, 0.18);
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.4);
+    color: #082632;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+
+  .program-day-tabs button.active {
+    background: #df8bb3;
+  }
+
+
+  /* Nagłówek dnia */
+
+  .timeline-mobile-header {
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    background: #df8bb3;
+
+    border-radius: 9px 9px 0 0;
+
+    font-size: 0.82rem;
+  }
+
+
+  /* Oś + wydarzenia */
+
+  .timeline-mobile-body {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+
+    width: 100%;
+  }
+
+.timeline-mobile-body .timeline-time-label {
+  right: 5px;
+  font-size: 0.57rem;
+  transform: translateY(-50%) translateY(7px);
+}
+  .timeline-mobile-body .timeline-event {
+    font-size: 0.69rem;
+    padding: 3px 5px;
+  }
+
 }
