@@ -11,7 +11,6 @@ function Register({ setAboutFace }) {
     rodo: false,
     presentation_type: "",
     abstract_file: null,
-    abstract_file_later: false,
     trip_priority_1: "",
     trip_priority_2: "",
     diet: "",
@@ -34,7 +33,6 @@ function Register({ setAboutFace }) {
         ...(value === "none" || value === ""
          ? {
               abstract_file: null,
-             abstract_file_later: false,
            }
          : {}),
      }));
@@ -97,14 +95,10 @@ const handleTripPriorityChange = (priority, value) => {
       formData.presentation_type === "presentation" ||
       formData.presentation_type === "poster";
 
-    if (
-      isPresenting &&
-      !formData.abstract_file &&
-      !formData.abstract_file_later
-    ) {
-      setStatus('Dodaj PDF z abstraktem albo zaznacz, że podeślesz go później.');
+    if (isPresenting && !formData.abstract_file) {
+      setStatus('Dodaj PDF z abstraktem.');
       return;
-    }
+}
     /*
     if (
       formData.has_allergies &&
@@ -129,7 +123,6 @@ const handleTripPriorityChange = (priority, value) => {
       fd.append('affiliation', formData.affiliation);
       fd.append('rodo', formData.rodo);
       fd.append('presentation_type', formData.presentation_type);
-      fd.append('abstract_file_later', formData.abstract_file_later);
       fd.append('trip_priority_1', formData.trip_priority_1);
       fd.append('trip_priority_2', formData.trip_priority_2);
       fd.append('diet', formData.diet);
@@ -165,10 +158,10 @@ const handleTripPriorityChange = (priority, value) => {
         <div className="registration-locked">
 
   <div
-    className="registration-locked__form"
-    inert=""
-    aria-hidden="true"
-  >
+  className="registration-locked__form"
+  inert=""
+  aria-hidden="true"
+>
 
 
   
@@ -297,18 +290,10 @@ const handleTripPriorityChange = (priority, value) => {
             />
 
             <small>
-              Wymagane jest przesłanie PDF-a z abstraktem albo zaznaczenie opcji poniżej.
+              Wymagane jest przesłanie pliku PDF z abstraktem.
             </small>
 
-            <label className="form-check">
-              <input
-              type="checkbox"
-              name="abstract_file_later"
-              checked={formData.abstract_file_later}
-              onChange={handleChange}
-            />
-            Abstrakt podeślę później drogą mailową (krasnal@pwr.edu.pl)
-          </label>
+            
         </div>
         )}
 
