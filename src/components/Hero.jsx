@@ -62,7 +62,7 @@ useEffect(() => {
         </div>
 
         <div className="hero-content">
-          <p className="hero-subtitle">Ogólnopolska Konferencja Fizyków</p>
+          <p className="hero-subtitle">Ogólnopolska Konferencja Studentów Fizyki</p>
           <h1>KRASNAL 2026</h1>
 
           <div className="hero-date-wrap">
@@ -116,7 +116,7 @@ useEffect(() => {
           </div>
 
           <a href="#zglos-sie" className="hero-button">
-            Zgłoś się (po otwarciu rejestracji)
+            Zgłoś się już teraz! 
           </a>
         </div>
       </div>

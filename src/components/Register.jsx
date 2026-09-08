@@ -9,6 +9,7 @@ function Register({ setAboutFace }) {
     phone: "",
     affiliation: "",
     rodo: false,
+    regulations: false,
     presentation_type: "",
     abstract_file: null,
     trip_priority_1: "",
@@ -122,6 +123,7 @@ const handleTripPriorityChange = (priority, value) => {
       fd.append('phone', formData.phone);
       fd.append('affiliation', formData.affiliation);
       fd.append('rodo', formData.rodo);
+      fd.append('regulations', formData.regulations);
       fd.append('presentation_type', formData.presentation_type);
       fd.append('trip_priority_1', formData.trip_priority_1);
       fd.append('trip_priority_2', formData.trip_priority_2);
@@ -151,21 +153,9 @@ const handleTripPriorityChange = (priority, value) => {
     <section className="register" id="zglos-sie">
       <div className="register-container">
         <h2>Zgłoszenia</h2>
-
-
-
-
-        <div className="registration-locked">
-
-  <div
-  className="registration-locked__form"
-  inert=""
-  aria-hidden="true"
->
-
-
-  
-
+        <p className="registration-deadline">
+  Rejestracja trwa do 15 września 2026 r. do godz. 23:59.
+</p>
         <form onSubmit={handleSubmit} className="register-form">
           <input
             type="text"
@@ -202,14 +192,13 @@ const handleTripPriorityChange = (priority, value) => {
             onChange={handleChange}
           />
 
-          <input
-            type="text"
-            name="affiliation"
-            placeholder="Afiliacja / uczelnia *"
-            value={formData.affiliation}
-            onChange={handleChange}
-            required
-          />
+<input
+  type="text"
+  name="affiliation"
+  placeholder="Afiliacja (opcjonalnie)"
+  value={formData.affiliation}
+  onChange={handleChange}
+/>
 
           <select
             name="presentation_type"
@@ -442,47 +431,64 @@ const handleTripPriorityChange = (priority, value) => {
     Więcej informacji o wycieczkach
   </a>
 </div>
-            <div className="form-section full-width">
-              <p className="form-section-title">
-                RODO
-                <span className="required-badge">Wymagane</span>
-              </p>
+           <div className="form-section full-width">
+  <p className="form-section-title">
+    RODO i Regulamin
+    <span className="required-badge">Wymagane</span>
+  </p>
 
-              <label className="form-check">
-                <input
-                  type="checkbox"
-                  name="rodo"
-                  checked={formData.rodo}
-                  onChange={handleChange}
-                  required
-                />
+  <label className="form-check">
+    <input
+      type="checkbox"
+      name="rodo"
+      checked={formData.rodo}
+      onChange={handleChange}
+      required
+    />
 
-                <span>
-                  Zapoznałem/am się z informacją dotyczącą przetwarzania moich danych osobowych w związku z rejestracją i udziałem w konferencji KRASNAL 2026.
-                </span>
-              </label>
-            </div>
+    <span>
+      Potwierdzam, że zapoznałem/am się z{" "}
+     <a
+  href="/RODO_OSTATECZNE.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="document-link"
+>
+  Klauzulą informacyjną RODO <span className="pdf-label">PDF </span>
+</a>
+      dotyczącą przetwarzania danych osobowych w związku z udziałem
+      w Ogólnopolskiej Konferencji Studentów Fizyki „KRASNAL”.
+    </span>
+  </label>
+
+  <label className="form-check">
+    <input
+      type="checkbox"
+      name="regulations"
+      checked={formData.regulations}
+      onChange={handleChange}
+      required
+    />
+
+    <span>
+      Potwierdzam, że zapoznałem/am się z{" "}
+     <a
+  href="/REGULAMIN_OSTETECZNE.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="document-link"
+>
+  Regulaminem Ogólnopolskiej Konferencji Studentów Fizyki „KRASNAL”{" "}
+  <span className="pdf-label">PDF </span>
+</a>{" "} i akceptuję jego postanowienia.
+    </span>
+  </label>
+</div>
           
           <button type="submit" className="register-link full-width">
             Wyślij zgłoszenie
           </button>
         </form>
-
-
-
- </div>
-
-  <div className="registration-locked__overlay">
-    <div className="registration-locked__message">
-      <h2>Zapisy chwilowo niedostępne</h2>
-      <p>Formularz rejestracyjny zostanie uruchomiony wkrótce.</p>
-    </div>
-  </div>
-
-
-
-
-</div>
         {status && <p className="status-message">{status}</p>}
       </div>
     </section>

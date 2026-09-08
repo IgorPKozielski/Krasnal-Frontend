@@ -2101,3 +2101,26 @@
   }
 
 }
+.registration-deadline {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+.document-link {
+  color: #2c6070;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.document-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.pdf-label {
+  font-size: 0.75em;
+  font-weight: 700;
+  white-space: nowrap;
+}
