@@ -6,6 +6,9 @@ import ptfLogo from '../assets/Logos/logo-ptf.png';
 import solarisLogo from '../assets/Logos/logo-solaris.png';
 import quantumAILogo from '../assets/Logos/logo-quantumAI.jpg';
 import pssfLogo from "../assets/Logos/pssf-logo.png";
+import redbullLogo from "../assets/Logos/logo-redbull.png";
+import kolejkowoLogo from "../assets/Logos/logo-kolejkowo.png";
+
 const patronages = [
   {
     name: 'Wydział Podstawowych Problemów Techniki PWr',
@@ -31,6 +34,16 @@ const patronages = [
     name: 'Polskie Stowarzyszenie Studentów Fizyki',
     logo: pssfLogo,
     website: 'https://pssf.edu.pl/',
+  },
+ {
+    name: 'Red Bull',
+    logo: redbullLogo,
+    website: 'https://www.redbull.com/pl-pl/',
+  },
+  {
+    name: 'Kolejkowo',
+    logo: kolejkowoLogo,
+    website: 'https://kolejkowo.pl/',
   },
 ];
 function Sponsors() {
