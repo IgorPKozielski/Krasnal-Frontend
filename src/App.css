@@ -2124,3 +2124,156 @@
   font-weight: 700;
   white-space: nowrap;
 }
+/* =========================
+   PRELEGENCI - FLIP CARDS
+   ========================= */
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.speaker-flip-card {
+  height: 480px;
+  perspective: 1200px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+}
+
+.speaker-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.speaker-flip-card.flipped .speaker-card-inner {
+  transform: rotateY(180deg);
+}
+
+.speaker-card-front,
+.speaker-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  border-radius: 18px;
+  padding: 24px 25px;
+
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(35, 91, 105, 0.14);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.speaker-card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speaker-card-front p {
+  width: 100%;
+  text-align: left;
+}
+
+.speaker-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.speaker-card-back h3 {
+  text-align: center;
+  margin: 0 0 18px;
+  line-height: 1.25;
+  font-size: 1.15rem;
+}
+
+.speaker-abstract {
+  overflow-y: auto;
+  padding-right: 8px;
+  flex: 1;
+}
+
+.speaker-abstract p {
+  margin: 0 0 12px;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.speaker-details-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.program .speaker-click-hint {
+  text-align: center;
+  margin: 16px auto 0;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  opacity: 0.65;
+}
+
+.speaker-flip-card:hover .speaker-card-front,
+.speaker-flip-card:hover .speaker-card-back {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+.speaker-flip-card:focus-visible .speaker-card-front,
+.speaker-flip-card:focus-visible .speaker-card-back {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+
+/* ===== TELEFON ===== */
+
+@media (max-width: 768px) {
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 0 16px;
+  }
+
+  .speaker-flip-card {
+    height: 480px;
+  }
+
+  .speaker-card-front,
+  .speaker-card-back {
+    padding: 22px 20px;
+  }
+
+  .speaker-card-back h3 {
+    font-size: 1.05rem;
+  }
+
+  .speaker-abstract p {
+    font-size: 0.9rem;
+  }
+
+  .speaker-click-hint {
+    padding: 0 20px;
+  }
+}
+.program-face.cube-left > h2 {
+  position: relative;
+  top: 15px;
+}

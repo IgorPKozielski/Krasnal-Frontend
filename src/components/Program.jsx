@@ -199,6 +199,7 @@ for (
 }
 function Program({ programFace, setProgramFace }) {
   const [activeProgramDay, setActiveProgramDay] = useState('friday');
+  const [flippedSpeaker, setFlippedSpeaker] = useState(null);
 
   const selectedProgramDay =
   programDays.find((day) => day.id === activeProgramDay) || programDays[0];
@@ -393,69 +394,211 @@ function Program({ programFace, setProgramFace }) {
                 </p>
               </div>
 
-             <div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
+<div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
   <h2>Prelegenci</h2>
   <div className="section-underline"></div>
 
   <div className="speakers-grid">
 
-  <div className="speaker-card">
-    <img
-      src={mierzejImg}
-      alt="Prof. Marcin Mierzejewski"
-      className="speaker-photo"
-    />
+    {/* ===== MARCIN MIERZEJEWSKI ===== */}
 
-    <h3>Prof. Marcin Mierzejewski</h3>
+    <div
+      className={`speaker-card speaker-flip-card ${
+        flippedSpeaker === 'mierzej' ? 'flipped' : ''
+      }`}
+      onClick={() =>
+        setFlippedSpeaker(
+          flippedSpeaker === 'mierzej' ? null : 'mierzej'
+        )
+      }
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setFlippedSpeaker(
+            flippedSpeaker === 'mierzej' ? null : 'mierzej'
+          );
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label="Pokaż szczegóły wykładu profesora Marcina Mierzejewskiego"
+    >
+      <div className="speaker-card-inner">
 
-    <p>
-      jest specjalistą w dziedzinie teoretycznej fizyki materii
-      skondensowanej i układów silnie skorelowanych. Jego badania
-      koncentrują się na dynamice nierównowagowej, transporcie kwantowym
-      oraz właściwościach niskowymiarowych układów kwantowych, łącząc
-      zaawansowane metody analityczne i numeryczne.
-    </p>
+        <div className="speaker-card-front">
+          <img
+            src={mierzejImg}
+            alt="Prof. Marcin Mierzejewski"
+            className="speaker-photo"
+          />
+
+          <h3>Prof. Marcin Mierzejewski</h3>
+
+          <p>
+            jest specjalistą w dziedzinie teoretycznej fizyki materii
+            skondensowanej i układów silnie skorelowanych. Jego badania
+            koncentrują się na dynamice nierównowagowej, transporcie kwantowym
+            oraz właściwościach niskowymiarowych układów kwantowych, łącząc
+            zaawansowane metody analityczne i numeryczne.
+          </p>
+        </div>
+
+        <div className="speaker-card-back">
+          <h3>
+            W jaki sposób makroskopowe układy zapominają o swojej przeszłości
+            i czy jest to nieuniknione?
+          </h3>
+
+          <div className="speaker-abstract">
+            <p>
+              Zjawisko termalizacji występuje powszechnie w otaczającym nas
+              świecie złożonym z obiektów makroskopowych. Chociaż obiekty takie
+              mają ogromną liczbę stopni swobody, po dostatecznie długim czasie
+              ich własności fizyczne określone są przez stosunkowo niewielką
+              liczbę parametrów takich jak temperatura, liczba cząsteczek czy
+              magnetyzacja.
+            </p>
+
+            <p>
+              Pozostałe informacje o stanie początkowym takich układów są
+              tracone w trakcie ewolucji. Ponieważ termalizacja układów
+              makroskopowych jest nierozłącznie związana z utratą informacji,
+              szczególnym zainteresowaniem w ostatnich latach cieszyły się
+              układy kwantowe, które nie wykazują termalizacji.
+            </p>
+
+            <p>
+              W tym kontekście badano układy, w których brak termalizacji
+              wynika z dodatkowych praw zachowania, oraz takie, gdzie silny
+              nieporządek jest przyczyną braku termalizacji. W trakcie wykładu
+              zostanie omówiona hipoteza wyjaśniająca powody termalizacji
+              typowych, makroskopowych układów kwantowych oraz wybrane
+              własności tych układów, które jej nie wykazują.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    {/* ===== MARIUSZ CIORGA ===== */}
+
+    <div
+      className={`speaker-card speaker-flip-card ${
+        flippedSpeaker === 'ciorga' ? 'flipped' : ''
+      }`}
+      onClick={() =>
+        setFlippedSpeaker(
+          flippedSpeaker === 'ciorga' ? null : 'ciorga'
+        )
+      }
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setFlippedSpeaker(
+            flippedSpeaker === 'ciorga' ? null : 'ciorga'
+          );
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label="Pokaż szczegóły wykładu profesora Mariusza Ciorgi"
+    >
+      <div className="speaker-card-inner">
+
+        <div className="speaker-card-front">
+          <img
+            src={ciorgaImg}
+            alt="Prof. Mariusz Ciorga"
+            className="speaker-photo"
+          />
+
+          <h3>Prof. Mariusz Ciorga</h3>
+
+          <p>
+            zajmuje się eksperymentalną fizyką półprzewodników, transportem
+            kwantowym i spintroniką. Jego badania obejmują transport spinowy
+            oraz właściwości nowoczesnych nanostruktur i materiałów
+            dwuwymiarowych, ze szczególnym uwzględnieniem zjawisk związanych
+            ze spinem i oddziaływaniem spin-orbita.
+          </p>
+        </div>
+
+        <div className="speaker-card-back">
+          <h3>Prof. Mariusz Ciorga</h3>
+
+          <div className="speaker-details-placeholder">
+            Szczegóły wykładu pojawią się wkrótce.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    {/* ===== TOMASZ ZALESKI ===== */}
+
+    <div
+      className={`speaker-card speaker-flip-card ${
+        flippedSpeaker === 'zaleski' ? 'flipped' : ''
+      }`}
+      onClick={() =>
+        setFlippedSpeaker(
+          flippedSpeaker === 'zaleski' ? null : 'zaleski'
+        )
+      }
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setFlippedSpeaker(
+            flippedSpeaker === 'zaleski' ? null : 'zaleski'
+          );
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label="Pokaż szczegóły wykładu profesora Tomasza Zaleskiego"
+    >
+      <div className="speaker-card-inner">
+
+        <div className="speaker-card-front">
+          <img
+            src={zaleskiImg}
+            alt="Prof. Tomasz Zaleski"
+            className="speaker-photo speaker-photo-zaleski"
+          />
+
+          <h3>Prof. Tomasz Zaleski</h3>
+
+          <p>
+            jest specjalistą w dziedzinie teoretycznej fizyki materii
+            skondensowanej i układów silnie skorelowanych. Jego badania
+            koncentrują się m.in. na ultrazimnych atomach w sieciach optycznych,
+            które pozwalają badać zjawiska znane z fizyki ciała stałego
+            w precyzyjnie kontrolowanych układach kwantowych. Jest również
+            zastępcą dyrektora ds. naukowych INTiBS PAN.
+          </p>
+        </div>
+
+        <div className="speaker-card-back">
+          <h3>Fizyka ciała stałego w sieciach optycznych</h3>
+
+          <div className="speaker-details-placeholder">
+            Szczegóły wykładu pojawią się wkrótce.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <div className="speaker-card">
-    <img
-      src={ciorgaImg}
-      alt="Prof. Mariusz Ciorga"
-      className="speaker-photo"
-    />
-
-    <h3>Prof. Mariusz Ciorga</h3>
-
-    <p>
-      zajmuje się eksperymentalną fizyką półprzewodników, transportem
-      kwantowym i spintroniką. Jego badania obejmują transport spinowy
-      oraz właściwości nowoczesnych nanostruktur i materiałów
-      dwuwymiarowych, ze szczególnym uwzględnieniem zjawisk związanych
-      ze spinem i oddziaływaniem spin-orbita.
-    </p>
-  </div>
-
-  <div className="speaker-card">
-    <img
-      src={zaleskiImg}
-      alt="Prof. Tomasz Zaleski"
-      className="speaker-photo speaker-photo-zaleski"
-    />
-
-    <h3>Prof. Tomasz Zaleski</h3>
-
-    <p>
-      jest specjalistą w dziedzinie teoretycznej fizyki materii
-      skondensowanej i układów silnie skorelowanych. Jego badania
-      koncentrują się m.in. na ultrazimnych atomach w sieciach optycznych,
-      które pozwalają badać zjawiska znane z fizyki ciała stałego
-      w precyzyjnie kontrolowanych układach kwantowych. Jest również
-      zastępcą dyrektora ds. naukowych INTiBS PAN.
-    </p>
-  </div>
-
+  <p className="speaker-click-hint">
+    Kliknij wykładowcę, aby zobaczyć szczegóły wykładu.
+  </p>
 </div>
-</div>
+
             </div>
           </div>
 
