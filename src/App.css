@@ -1851,6 +1851,9 @@
   grid-template-rows: auto 518px;
 
   column-gap: 8px;
+  transform: scale(0.92);
+  transform-origin: top center;
+  margin-bottom: -45px;
 }
 
 
@@ -2276,4 +2279,21 @@
 .program-face.cube-left > h2 {
   position: relative;
   top: 15px;
+}
+.program-note {
+  max-width: 900px;
+  margin: 2px auto 4px;
+  padding: 0 12px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.25;
+}
+
+@media (max-width: 600px) {
+  .program-note {
+    font-size: 0.7rem;
+    margin: 2px auto 4px;
+    padding: 0 10px;
+  }
 }

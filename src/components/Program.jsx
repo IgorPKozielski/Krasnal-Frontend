@@ -227,6 +227,10 @@ function Program({ programFace, setProgramFace }) {
             >
               <div className={`cube-face program-face cube-front ${programFace === 0 ? "active" : ""}`}>
   <h2>Program</h2>
+  <div className="program-note">
+  Program ma charakter poglądowy i może podlegać drobnym zmianom organizacyjnym,
+  jednak nie przewidujemy znaczących zmian w jego przebiegu.
+</div>
   <div className="section-underline"></div>
 
    {/* ===== DESKTOP ===== */}
@@ -526,10 +530,34 @@ function Program({ programFace, setProgramFace }) {
         </div>
 
         <div className="speaker-card-back">
-          <h3>Prof. Mariusz Ciorga</h3>
+          <h3>Generacja i kontrolowanie prądów spinowych w półprzewodnikach: droga do realizacji tranzystora spinowego</h3>
 
-          <div className="speaker-details-placeholder">
-            Szczegóły wykładu pojawią się wkrótce.
+           <div className="speaker-abstract">
+            <p>
+              Zjawisko termalizacji występuje powszechnie w otaczającym nas
+              świecie złożonym z obiektów makroskopowych. Chociaż obiekty takie
+              mają ogromną liczbę stopni swobody, po dostatecznie długim czasie
+              ich własności fizyczne określone są przez stosunkowo niewielką
+              liczbę parametrów takich jak temperatura, liczba cząsteczek czy
+              magnetyzacja.
+            </p>
+
+            <p>
+              Pozostałe informacje o stanie początkowym takich układów są
+              tracone w trakcie ewolucji. Ponieważ termalizacja układów
+              makroskopowych jest nierozłącznie związana z utratą informacji,
+              szczególnym zainteresowaniem w ostatnich latach cieszyły się
+              układy kwantowe, które nie wykazują termalizacji.
+            </p>
+
+            <p>
+              W tym kontekście badano układy, w których brak termalizacji
+              wynika z dodatkowych praw zachowania, oraz takie, gdzie silny
+              nieporządek jest przyczyną braku termalizacji. W trakcie wykładu
+              zostanie omówiona hipoteza wyjaśniająca powody termalizacji
+              typowych, makroskopowych układów kwantowych oraz wybrane
+              własności tych układów, które jej nie wykazują.
+            </p>
           </div>
         </div>
 
