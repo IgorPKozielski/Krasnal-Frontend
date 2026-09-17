@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../api';
-import wydzialLogo from '../assets/Logos/logo-wydział.png';
-import pwrLogo from '../assets/Logos/logo-pwr.png';
+import wpptLogo from "../assets/Logos/logo-wppt.png";
+import pwrLogo from "../assets/Logos/logo-pwr.png";
 import ptfLogo from '../assets/Logos/logo-ptf.png';
 import solarisLogo from '../assets/Logos/logo-solaris.png';
 import quantumAILogo from '../assets/Logos/logo-quantumAI.jpg';
 import pssfLogo from "../assets/Logos/pssf-logo.png";
 import redbullLogo from "../assets/Logos/logo-redbull.png";
 import kolejkowoLogo from "../assets/Logos/logo-kolejkowo.png";
-
+import skyblueLogo from "../assets/Logos/logo-skyblue.png"
 const patronages = [
   {
-    name: 'Wydział Podstawowych Problemów Techniki PWr',
-    logo: wydzialLogo,
+    name: 'Politechnika Wrocławska',
+    logo: pwrLogo,
+    website: 'https://pwr.edu.pl/',
+  },
+  {
+    name: 'Wydział Podstawowych Problemów Techniki - PWr',
+    logo: wpptLogo,
     website: 'https://wppt.pwr.edu.pl/',
   },
   {
@@ -44,6 +49,11 @@ const patronages = [
     name: 'Kolejkowo',
     logo: kolejkowoLogo,
     website: 'https://kolejkowo.pl/',
+  },
+  {
+    name: 'Skyblue',
+    logo: skyblueLogo,
+    website: 'https://skyblue.education/',
   },
 ];
 function Sponsors() {
