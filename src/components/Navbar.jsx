@@ -42,12 +42,22 @@ function Navbar({ setAboutFace, setProgramFace }) {
             <button className="nav-link-btn" onClick={() => goToProgramFace(0)}>
               Informacje <span className="nav-caret">▾</span>
             </button>
-            <div className="dropdown-menu">
-              <button onClick={() => goToProgramFace(0)}>Program</button>
-              <button onClick={() => goToProgramFace(1)}>Jak dojechać?</button>
-              <button onClick={() => goToProgramFace(2)}>Mapka sal</button>
-              <button onClick={() => goToProgramFace(3)}>Prelegenci</button>
-            </div>
+          <div className="dropdown-menu">
+  <button onClick={() => goToProgramFace(0)}>Program</button>
+  <button onClick={() => goToProgramFace(1)}>Jak dojechać?</button>
+  <button onClick={() => goToProgramFace(2)}>Mapka sal</button>
+  <button onClick={() => goToProgramFace(3)}>Prelegenci</button>
+
+  <button
+    onClick={() =>
+      document
+        .getElementById("mikroforfiz")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+  >
+    μForFiz
+  </button>
+</div>
           </div>
 
           <a href="#sponsorzy">Partnerzy</a>

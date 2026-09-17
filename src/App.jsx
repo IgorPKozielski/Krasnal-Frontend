@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Sponsors from "./components/Sponsors";
+import MikroForFiz from './components/MikroForFiz';
 
 function App() {
   const [aboutFace, setAboutFace] = useState(0);
@@ -23,6 +24,7 @@ function App() {
       <Hero />
       <About aboutFace={aboutFace} setAboutFace={setAboutFace} />
       <Program programFace={programFace} setProgramFace={setProgramFace} />
+      <MikroForFiz />
       <Sponsors />
       <Register setAboutFace={setAboutFace} />
       <Contact />

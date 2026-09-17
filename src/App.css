@@ -2297,3 +2297,250 @@
     padding: 0 10px;
   }
 }
+/* =========================
+   mikroForFiz
+   ========================= */
+
+.microforfiz-section {
+  padding: 90px 24px;
+  background: #f7f9f9;
+}
+
+.microforfiz-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Nagłówek */
+
+.microforfiz-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.microforfiz-header h2 {
+  margin: 0 0 25px;
+  font-size: 52px;
+  font-weight: 700;
+  color: #06283a;
+}
+
+.microforfiz-logo {
+  display: block;
+  width: min(100%, 310px);
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: 12px;
+}
+
+.microforfiz-intro {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #274554;
+}
+
+
+/* Tekst + prowadzący */
+
+.microforfiz-content {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 60px;
+  align-items: start;
+}
+
+
+/* Opis */
+
+.microforfiz-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #203b49;
+}
+
+.microforfiz-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 14px;
+  border-radius: 999px;
+
+  background: #b6d80b;
+  color: #06283a;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.microforfiz-description h3 {
+  margin: 0 0 24px;
+  font-size: 34px;
+  line-height: 1.2;
+  color: #06283a;
+}
+
+.microforfiz-description p {
+  margin: 0 0 18px;
+}
+
+
+/* Kafelki tematów */
+
+.microforfiz-topics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.microforfiz-topic {
+  padding: 16px 18px;
+
+  background: white;
+  border: 1px solid #dde7e9;
+  border-left: 5px solid #b6d80b;
+  border-radius: 10px;
+
+  font-weight: 600;
+  color: #143747;
+}
+
+
+/* Prowadzący */
+
+.microforfiz-speaker {
+  overflow: hidden;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 25, 40, 0.1);
+}
+
+.microforfiz-photo-wrapper {
+  width: 100%;
+  height: 470px;
+  overflow: hidden;
+}
+
+.microforfiz-photo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /* To ucina nadmiar ściany nad głową */
+  object-position: center 68%;
+}
+
+.microforfiz-speaker-info {
+  padding: 24px 26px 28px;
+}
+
+.microforfiz-speaker-info span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #729000;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.microforfiz-speaker-info h3 {
+  margin: 0 0 7px;
+  font-size: 27px;
+  color: #06283a;
+}
+
+.microforfiz-speaker-info p {
+  margin: 0;
+  line-height: 1.5;
+  color: #536a75;
+}
+.microforfiz-audience {
+  margin-top: 26px !important;
+}
+
+
+/* =========================
+   TELEFON
+   ========================= */
+
+@media (max-width: 850px) {
+
+  .microforfiz-section {
+    padding: 65px 20px;
+    scroll-margin-top: 80px;
+
+  }
+
+  .microforfiz-header {
+    margin-bottom: 40px;
+  }
+
+  .microforfiz-header h2 {
+    font-size: 38px;
+  }
+
+.microforfiz-logo {
+  width: min(100%, 280px);
+}
+
+  .microforfiz-intro {
+    font-size: 17px;
+  }
+
+  .microforfiz-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .microforfiz-description h3 {
+    font-size: 28px;
+  }
+
+  .microforfiz-topics {
+    grid-template-columns: 1fr;
+  }
+
+  .microforfiz-speaker {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .microforfiz-photo-wrapper {
+    height: 430px;
+  }
+
+  .microforfiz-photo {
+    object-position: center 67%;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .microforfiz-section {
+    padding: 55px 16px;
+  }
+
+  .microforfiz-header h2 {
+    font-size: 32px;
+  }
+
+  .microforfiz-description {
+    font-size: 16px;
+  }
+
+  .microforfiz-description h3 {
+    font-size: 25px;
+  }
+
+  .microforfiz-photo-wrapper {
+    height: 380px;
+  }
+}

@@ -154,9 +154,17 @@ const handleTripPriorityChange = (priority, value) => {
       <div className="register-container">
         <h2>Zgłoszenia</h2>
         <p className="registration-deadline">
-  Rejestracja trwa do 15 września 2026 r. do godz. 23:59.
+  Rejestracja na konferencję KRASNAL 2026 została zakończona.
 </p>
-        <form onSubmit={handleSubmit} className="register-form">
+
+<div className="registration-locked">
+  <div
+    className="registration-locked__form"
+    inert=""
+    aria-hidden="true"
+  >
+
+    <form onSubmit={handleSubmit} className="register-form">
           <input
             type="text"
             name="first_name"
@@ -488,10 +496,23 @@ const handleTripPriorityChange = (priority, value) => {
           <button type="submit" className="register-link full-width">
             Wyślij zgłoszenie
           </button>
-        </form>
-        {status && <p className="status-message">{status}</p>}
+         </form>
       </div>
-    </section>
+
+      <div className="registration-locked__overlay">
+        <div className="registration-locked__message">
+          <h2>Zapisy na edycję 2026 zakończone</h2>
+          <p>
+            Rejestracja na konferencję KRASNAL 2026 została zakończona.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+   {status && <p className="status-message">{status}</p>}
+  </div>
+</section>
   );
 }
 
