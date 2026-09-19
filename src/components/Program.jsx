@@ -13,16 +13,9 @@ const programDays = [
       {
         start: '10:00',
         end: '13:00',
-        title: 'Wycieczka INTiBS',
+        title: 'Wycieczka WCSS i INTiBS',
         type: 'trip',
-        lane: 'left',
-      },
-      {
-        start: '11:30',
-        end: '13:00',
-        title: 'Wycieczka WCSS',
-        type: 'trip',
-        lane: 'right',
+        lane: 'full',
       },
       {
         start: '13:00',
@@ -33,29 +26,29 @@ const programDays = [
       },
       {
         start: '14:00',
-        end: '15:00',
-        title: 'Wykład – prof. Marcin Mierzejewski',
-        type: 'lecture',
-        lane: 'full',
-      },
-      {
-        start: '15:00',
-        end: '16:30',
+        end: '15:30',
         title: 'Obiad',
         type: 'break',
         lane: 'full',
       },
       {
+        start: '15:30',
+        end: '16:30',
+        title: 'Wykład – prof. Marcin Mierzejewski',
+        type: 'lecture',
+        lane: 'full',
+      },
+      {
         start: '16:30',
         end: '17:30',
-        title: 'Sesja prezentacji ustnych',
+        title: 'Sesja Prezentacyjna',
         type: 'oral',
         lane: 'full',
       },
       {
         start: '17:30',
-        end: '18:15',
-        title: 'Wydarzenie PSSF – mikroForFiz – Norbert Nieścior',
+        end: '19:00',
+        title: 'mikroForFiz',
         type: 'special',
         lane: 'full',
       },
@@ -68,9 +61,16 @@ const programDays = [
     date: '26.09',
     events: [
       {
-        start: '09:00',
+        start: '09:30',
+        end: '10:00',
+        title: 'Kawka na start dnia',
+        type: 'break',
+        lane: 'full',
+      },
+      {
+        start: '10:00',
         end: '11:00',
-        title: 'Sesja prezentacji ustnych',
+        title: 'Sesja Prezentacyjna',
         type: 'oral',
         lane: 'full',
       },
@@ -83,35 +83,35 @@ const programDays = [
       },
       {
         start: '12:00',
-        end: '12:30',
+        end: '13:00',
         title: 'Przerwa kawowa',
         type: 'break',
         lane: 'full',
       },
       {
-        start: '12:30',
-        end: '15:00',
-        title: 'Sesja prezentacji ustnych',
+        start: '13:00',
+        end: '14:00',
+        title: 'Sesja Prezentacyjna',
         type: 'oral',
         lane: 'full',
       },
       {
-        start: '15:00',
-        end: '16:30',
+        start: '14:00',
+        end: '15:30',
         title: 'Obiad',
         type: 'break',
         lane: 'full',
       },
       {
-        start: '16:30',
-        end: '18:00',
-        title: 'Sesja plakatowa',
+        start: '15:30',
+        end: '17:00',
+        title: 'Sesja Posterowa',
         type: 'oral',
         lane: 'full',
       },
       {
-        start: '18:00',
-        end: '18:15',
+        start: '17:00',
+        end: '19:00',
         title: 'Integracja',
         type: 'ceremony',
         lane: 'full',
@@ -125,29 +125,43 @@ const programDays = [
     date: '27.09',
     events: [
       {
-        start: '09:00',
+        start: '09:30',
         end: '10:00',
-        title: 'Sesja prezentacji ustnych',
-        type: 'oral',
+        title: 'Kawka na start dnia',
+        type: 'break',
         lane: 'full',
       },
       {
         start: '10:00',
         end: '11:00',
+        title: 'Sesja Prezentacyjna',
+        type: 'oral',
+        lane: 'full',
+      },
+      {
+        start: '11:00',
+        end: '12:00',
         title: 'Wykład – prof. Mariusz Ciorga',
         type: 'lecture',
         lane: 'full',
       },
       {
-        start: '11:00',
+        start: '12:00',
         end: '13:00',
-        title: 'Sesja prezentacji ustnych',
+        title: 'Sesja Prezentacyjna',
         type: 'oral',
         lane: 'full',
       },
       {
         start: '13:00',
-        end: '15:00',
+        end: '13:30',
+        title: 'Przerwa Kawowa',
+        type: 'break',
+        lane: 'full',
+      },
+      {
+        start: '13:30',
+        end: '15:30',
         title: 'Zamknięcie konferencji',
         type: 'ceremony',
         lane: 'full',
@@ -155,8 +169,8 @@ const programDays = [
     ],
   },
 ];
-const TIMELINE_START = 9 * 60;
-const TIMELINE_END = 18 * 60 + 15;
+const TIMELINE_START = 9 * 60 + 30;
+const TIMELINE_END = 19 * 60;
 const SLOT_MINUTES = 15;
 const SLOT_HEIGHT = 14;
 
