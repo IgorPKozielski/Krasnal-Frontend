@@ -61,14 +61,14 @@ const programDays = [
     date: '26.09',
     events: [
       {
-        start: '09:30',
-        end: '10:00',
+        start: '09:00',
+        end: '09:30',
         title: 'Kawka na start dnia',
         type: 'break',
         lane: 'full',
       },
       {
-        start: '10:00',
+        start: '09:30',
         end: '11:00',
         title: 'Sesja Prezentacyjna',
         type: 'oral',
@@ -105,7 +105,7 @@ const programDays = [
       {
         start: '15:30',
         end: '17:00',
-        title: 'Sesja Posterowa',
+        title: 'Sesja posterowa',
         type: 'oral',
         lane: 'full',
       },
@@ -125,14 +125,14 @@ const programDays = [
     date: '27.09',
     events: [
       {
-        start: '09:30',
-        end: '10:00',
+        start: '09:00',
+        end: '09:30',
         title: 'Kawka na start dnia',
         type: 'break',
         lane: 'full',
       },
       {
-        start: '10:00',
+        start: '09:30',
         end: '11:00',
         title: 'Sesja Prezentacyjna',
         type: 'oral',
@@ -155,7 +155,7 @@ const programDays = [
       {
         start: '13:00',
         end: '13:30',
-        title: 'Przerwa Kawowa',
+        title: 'Przerwa',
         type: 'break',
         lane: 'full',
       },
@@ -169,10 +169,12 @@ const programDays = [
     ],
   },
 ];
-const TIMELINE_START = 9 * 60 + 30;
+
+const TIMELINE_START = 9 * 60;
 const TIMELINE_END = 19 * 60;
+
 const SLOT_MINUTES = 15;
-const SLOT_HEIGHT = 14;
+const SLOT_HEIGHT = 13;
 
 const timeToMinutes = (time) => {
   const [hours, minutes] = time.split(':').map(Number);
