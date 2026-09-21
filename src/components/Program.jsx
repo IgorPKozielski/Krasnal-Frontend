@@ -13,9 +13,16 @@ const programDays = [
       {
         start: '10:00',
         end: '13:00',
-        title: 'Wycieczka WCSS i INTiBS',
+        title: 'Wycieczka do INTiBS',
         type: 'trip',
-        lane: 'full',
+        lane: 'left',
+      },
+      {
+        start: '11:30',
+        end: '13:00',
+        title: 'Wycieczka do WCSS',
+        type: 'trip',
+        lane: 'right',
       },
       {
         start: '13:00',
@@ -155,7 +162,7 @@ const programDays = [
       {
         start: '13:00',
         end: '13:30',
-        title: 'Przerwa',
+        title: 'Przerwa Kawowa',
         type: 'break',
         lane: 'full',
       },
@@ -625,18 +632,18 @@ function Program({ programFace, setProgramFace }) {
           </p>
         </div>
 
-        <div className="speaker-card-back">
-          <h3>Fizyka ciała stałego w sieciach optycznych</h3>
+   <div className="speaker-card-back">
+  <h3>Fizyka ciała stałego w sieciach optycznych</h3>
 
-          <div className="speaker-details-placeholder">
-            Szczegóły wykładu pojawią się wkrótce.
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+  <div className="speaker-details-placeholder">
+    Własności wielu materiałów - od magnetyków po nadprzewodniki wysokotemperaturowe - wynikają z silnych oddziaływań między elektronami, których opis teoretyczny pozostaje jednym z najtrudniejszych problemów współczesnej fizyki. Ultrazimne atomy uwięzione w sieciach optycznych, czyli „kryształach ze światła", pozwalają podejść do niego inaczej: zamiast rozwiązywać model, można go zbudować w laboratorium, kontrolując geometrię sieci, siłę oddziaływań, a nawet sztuczne pole magnetyczne. Wykład pokaże, jak powstaje taki sztuczny kryształ, jak obserwuje się w nim kwantowe przemiany fazowe i jak opisuje się je teoretycznie.
   </div>
+</div>
+
+</div>
+</div>
+
+</div>
 
   <p className="speaker-click-hint">
     Kliknij wykładowcę, aby zobaczyć szczegóły wykładu.
