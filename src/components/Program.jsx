@@ -4,6 +4,8 @@ import pasazPwr from '../assets/Pasaz-PWR.png';
 import mierzejImg from '../assets/mierzej.png';
 import ciorgaImg from '../assets/ciorga.png';
 import zaleskiImg from '../assets/TommyZaleski.png';
+import planP0 from "../assets/PlanP0_1.0.png";
+import planP2 from "../assets/PlanP2_1.0.png";
 const programDays = [
   {
     id: 'friday',
@@ -234,6 +236,7 @@ function Program({ programFace, setProgramFace }) {
   const prevSlide = () => {
     setProgramFace((prev) => (prev - 1 + 4) % 4);
   };
+const [mapFloor, setMapFloor] = useState(0);
 
   return (
     <section id="program" className="program">
@@ -412,14 +415,47 @@ function Program({ programFace, setProgramFace }) {
   Kliknij mapę, aby powiększyć zdjęcie.
 </p>
 </div>
-              <div className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}>
-                <h2>Mapka sal</h2>
-                <div className="section-underline"></div>
-                <p>
-                  W tym miejscu pojawi się mapa sal konferencyjnych, która ułatwi
-                  poruszanie się po przestrzeni wydarzenia.
-                </p>
-              </div>
+             <div
+  className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}
+>
+ 
+  <div className="section-underline"></div>
+
+  <div className="conference-map">
+    <p className="conference-map-floor">
+    
+    </p>
+
+    <button
+      type="button"
+      className="conference-map-button"
+      onClick={(e) => {
+        e.stopPropagation();
+        setMapFloor(mapFloor === 0 ? 2 : 0);
+      }}
+      aria-label={
+        mapFloor === 0
+          ? "Przejdź do mapy drugiego piętra"
+          : "Przejdź do mapy parteru"
+      }
+    >
+      <img
+        src={mapFloor === 0 ? planP0 : planP2}
+        alt={
+          mapFloor === 0
+            ? "Mapa parteru"
+            : "Mapa drugiego piętra – Strefa Krasnalowa"
+        }
+      />
+    </button>
+
+    <p className="conference-map-switch">
+      {mapFloor === 0
+        ? "Kliknij mapę, aby przejść na 2. piętro ↑ budynku A-1"
+        : "Kliknij mapę, aby przejść na parter ↓ budynku A-1"}
+    </p>
+  </div>
+</div>
 
 <div className={`cube-face program-face cube-left ${programFace === 3 ? "active" : ""}`}>
   <h2>Prelegenci</h2>
