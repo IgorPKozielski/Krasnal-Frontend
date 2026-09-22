@@ -23,7 +23,7 @@ function App() {
       />
       <Hero />
       <About aboutFace={aboutFace} setAboutFace={setAboutFace} />
-      <Program programFace={programFace} setProgramFace={setProgramFace} />
+      <Program programFace={programFace} setProgramFace={setProgramFace} setAboutFace={setAboutFace} />
       <MikroForFiz />
       <Sponsors />
       <Register setAboutFace={setAboutFace} />

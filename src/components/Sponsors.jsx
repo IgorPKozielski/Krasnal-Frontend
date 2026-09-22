@@ -8,7 +8,8 @@ import quantumAILogo from '../assets/Logos/logo-quantumAI.jpg';
 import pssfLogo from "../assets/Logos/pssf-logo.png";
 import redbullLogo from "../assets/Logos/logo-redbull.png";
 import kolejkowoLogo from "../assets/Logos/logo-kolejkowo.png";
-import skyblueLogo from "../assets/Logos/logo-skyblue.png"
+import skyblueLogo from "../assets/Logos/logo-skyblue.png";
+import kfdLogo from "../assets/Logos/logo-kfd.png";
 const patronages = [
   {
     name: 'Politechnika Wrocławska',
@@ -19,6 +20,11 @@ const patronages = [
     name: 'Wydział Podstawowych Problemów Techniki - PWr',
     logo: wpptLogo,
     website: 'https://wppt.pwr.edu.pl/',
+  },
+  {
+    name: "Katedra Fizyki Doświadczalnej Politechniki Wrocławskiej",
+    logo: kfdLogo,
+    website: "https://kfd.pwr.edu.pl/",
   },
   {
     name: 'Polskie Towarzystwo Fizyczne',

@@ -13,19 +13,23 @@ const programDays = [
     date: '25.09',
     events: [
       {
-        start: '10:00',
-        end: '13:00',
-        title: 'Wycieczka do INTiBS',
-        type: 'trip',
-        lane: 'left',
-      },
-      {
-        start: '11:30',
-        end: '13:00',
-        title: 'Wycieczka do WCSS',
-        type: 'trip',
-        lane: 'right',
-      },
+  start: '10:00',
+  end: '13:00',
+  title: 'Wycieczka do INTiBS',
+  type: 'trip',
+  lane: 'left',
+  action: 'scroll',
+  target: 'wycieczki',
+},
+{
+  start: '11:30',
+  end: '13:00',
+  title: 'Wycieczka do WCSS',
+  type: 'trip',
+  lane: 'right',
+  action: 'scroll',
+  target: 'wycieczki',
+},
       {
         start: '13:00',
         end: '14:00',
@@ -41,12 +45,14 @@ const programDays = [
         lane: 'full',
       },
       {
-        start: '15:30',
-        end: '16:30',
-        title: 'Wykład – prof. Marcin Mierzejewski',
-        type: 'lecture',
-        lane: 'full',
-      },
+  start: '15:30',
+  end: '16:30',
+  title: 'Wykład – prof. Marcin Mierzejewski',
+  type: 'lecture',
+  lane: 'full',
+  action: 'scroll',
+  target: 'mierzejewski',
+},
       {
         start: '16:30',
         end: '17:30',
@@ -55,12 +61,14 @@ const programDays = [
         lane: 'full',
       },
       {
-        start: '17:30',
-        end: '19:00',
-        title: 'mikroForFiz',
-        type: 'special',
-        lane: 'full',
-      },
+  start: '17:30',
+  end: '19:00',
+  title: 'mikroForFiz',
+  type: 'trip',
+  lane: 'full',
+  action: 'scroll',
+  target: 'mikroforfiz',
+},
     ],
   },
 
@@ -84,12 +92,14 @@ const programDays = [
         lane: 'full',
       },
       {
-        start: '11:00',
-        end: '12:00',
-        title: 'Wykład – prof. Tomasz Zaleski',
-        type: 'lecture',
-        lane: 'full',
-      },
+  start: '11:00',
+  end: '12:00',
+  title: 'Wykład – prof. Tomasz Zaleski',
+  type: 'lecture',
+  lane: 'full',
+  action: 'scroll',
+  target: 'zaleski',
+},
       {
         start: '12:00',
         end: '13:00',
@@ -119,12 +129,14 @@ const programDays = [
         lane: 'full',
       },
       {
-        start: '17:00',
-        end: '19:00',
-        title: 'Integracja',
-        type: 'ceremony',
-        lane: 'full',
-      },
+  start: '17:00',
+  end: '19:00',
+  title: 'Integracja',
+  type: 'ceremony',
+  lane: 'full',
+  action: 'link',
+  href: 'https://www.facebook.com/PrzekretPubStudencki/?locale=pl_PL',
+},
     ],
   },
 
@@ -148,12 +160,14 @@ const programDays = [
         lane: 'full',
       },
       {
-        start: '11:00',
-        end: '12:00',
-        title: 'Wykład – prof. Mariusz Ciorga',
-        type: 'lecture',
-        lane: 'full',
-      },
+  start: '11:00',
+  end: '12:00',
+  title: 'Wykład – prof. Mariusz Ciorga',
+  type: 'lecture',
+  lane: 'full',
+  action: 'scroll',
+  target: 'ciorga',
+},
       {
         start: '12:00',
         end: '13:00',
@@ -222,7 +236,7 @@ for (
       ((minutes - TIMELINE_START) / SLOT_MINUTES) * SLOT_HEIGHT,
   });
 }
-function Program({ programFace, setProgramFace }) {
+function Program({ programFace, setProgramFace, setAboutFace }) {
   const [activeProgramDay, setActiveProgramDay] = useState('friday');
   const [flippedSpeaker, setFlippedSpeaker] = useState(null);
 
@@ -237,7 +251,59 @@ function Program({ programFace, setProgramFace }) {
     setProgramFace((prev) => (prev - 1 + 4) % 4);
   };
 const [mapFloor, setMapFloor] = useState(0);
+const handleProgramEventClick = (event) => {
+  if (event.action === 'scroll' && event.target) {
 
+    if (event.target === 'wycieczki') {
+      setAboutFace(1);
+
+      setTimeout(() => {
+        const aboutSection = document.getElementById('o-konferencji');
+
+        if (aboutSection) {
+          aboutSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }, 500);
+
+      return;
+    }
+
+    const speakerTargets = ['mierzejewski', 'ciorga', 'zaleski'];
+
+    if (speakerTargets.includes(event.target)) {
+      setProgramFace(3);
+
+      setTimeout(() => {
+        const targetElement = document.getElementById(event.target);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }, 500);
+
+      return;
+    }
+
+    const targetElement = document.getElementById(event.target);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }
+
+  if (event.action === 'link' && event.href) {
+    window.open(event.href, '_blank', 'noopener,noreferrer');
+  }
+};
   return (
     <section id="program" className="program">
       <div className="program-container">
@@ -251,11 +317,11 @@ const [mapFloor, setMapFloor] = useState(0);
               className="cube program-cube"
               style={{ transform: `translateZ(-600px) rotateY(${-programFace * 90}deg)` }}
             >
-              <div className={`cube-face program-face cube-front ${programFace === 0 ? "active" : ""}`}>
+              <div className={`cube-face program-face cube-front timeline-face ${programFace === 0 ? "active" : ""}`}>
   <h2>Program</h2>
   <div className="program-note">
   Program ma charakter poglądowy i może podlegać drobnym zmianom organizacyjnym,
-  jednak nie przewidujemy znaczących zmian w jego przebiegu.
+  jednak nie przewidujemy znaczących zmian w jego przebiegu. Kliknij na event, aby zobaczyć szczegóły.
 </div>
   <div className="section-underline"></div>
 
@@ -292,18 +358,20 @@ const [mapFloor, setMapFloor] = useState(0);
       <div className="timeline-day-track" key={day.id}>
 
         {day.events.map((event, index) => (
-          <div
-            key={`${day.id}-${index}`}
-            className={`
-              timeline-event
-              timeline-event-${event.type}
-              timeline-event-${event.lane}
-            `}
-            style={getEventStyle(event)}
-          >
-            <span>{event.title}</span>
-          </div>
-        ))}
+  <div
+    key={`${day.id}-${index}`}
+    className={`
+      timeline-event
+      timeline-event-${event.type}
+      timeline-event-${event.lane}
+      ${event.action ? 'clickable' : ''}
+    `}
+    style={getEventStyle(event)}
+    onClick={() => event.action && handleProgramEventClick(event)}
+  >
+    <span>{event.title}</span>
+  </div>
+))}
 
       </div>
     ))}
@@ -351,19 +419,21 @@ const [mapFloor, setMapFloor] = useState(0);
 
       <div className="timeline-day-track">
 
-        {selectedProgramDay.events.map((event, index) => (
-          <div
-            key={`${selectedProgramDay.id}-${index}`}
-            className={`
-              timeline-event
-              timeline-event-${event.type}
-              timeline-event-${event.lane}
-            `}
-            style={getEventStyle(event)}
-          >
-            <span>{event.title}</span>
-          </div>
-        ))}
+       {selectedProgramDay.events.map((event, index) => (
+  <div
+    key={`${selectedProgramDay.id}-${index}`}
+    className={`
+      timeline-event
+      timeline-event-${event.type}
+      timeline-event-${event.lane}
+      ${event.action ? 'clickable' : ''}
+    `}
+    style={getEventStyle(event)}
+    onClick={() => event.action && handleProgramEventClick(event)}
+  >
+    <span>{event.title}</span>
+  </div>
+))}
 
       </div>
 
@@ -415,16 +485,12 @@ const [mapFloor, setMapFloor] = useState(0);
   Kliknij mapę, aby powiększyć zdjęcie.
 </p>
 </div>
-             <div
-  className={`cube-face program-face cube-back ${programFace === 2 ? "active" : ""}`}
->
+             <div className={`cube-face program-face cube-back map-face ${programFace === 2 ? "active" : ""}`}>
  
   <div className="section-underline"></div>
 
   <div className="conference-map">
-    <p className="conference-map-floor">
-    
-    </p>
+   
 
     <button
       type="button"
@@ -466,6 +532,7 @@ const [mapFloor, setMapFloor] = useState(0);
     {/* ===== MARCIN MIERZEJEWSKI ===== */}
 
     <div
+      id="mierzejewski"
       className={`speaker-card speaker-flip-card ${
         flippedSpeaker === 'mierzej' ? 'flipped' : ''
       }`}
@@ -548,6 +615,7 @@ const [mapFloor, setMapFloor] = useState(0);
     {/* ===== MARIUSZ CIORGA ===== */}
 
     <div
+      id="ciorga"
       className={`speaker-card speaker-flip-card ${
         flippedSpeaker === 'ciorga' ? 'flipped' : ''
       }`}
@@ -627,6 +695,7 @@ const [mapFloor, setMapFloor] = useState(0);
     {/* ===== TOMASZ ZALESKI ===== */}
 
     <div
+      id="zaleski"
       className={`speaker-card speaker-flip-card ${
         flippedSpeaker === 'zaleski' ? 'flipped' : ''
       }`}
