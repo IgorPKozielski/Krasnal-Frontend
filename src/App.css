@@ -2624,3 +2624,34 @@
   box-shadow: none !important;
   overflow: visible;
 }
+.timeline-day-track {
+  position: relative;
+}
+
+.timeline-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.timeline-grid-line.full-hour {
+  background: rgba(0, 45, 60, 0.14);
+}
+
+.timeline-grid-line.half-hour {
+  background: rgba(0, 45, 60, 0.06);
+}
+
+.timeline-event {
+  z-index: 1;
+}
+.contact-regulations {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

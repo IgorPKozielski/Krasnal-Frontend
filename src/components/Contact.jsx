@@ -56,6 +56,25 @@ function Contact() {
   </a>
 
 </div>
+<div className="contact-regulations">
+  <a
+    href="/REGULAMIN_OSTATECZNE.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-link"
+  >
+    <span>Regulamin konferencji</span>
+  </a>
+
+  <a
+    href="/RODO_OSTATECZNE.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-link"
+  >
+    <span>RODO</span>
+  </a>
+</div>
       </div>
     </section>
   )

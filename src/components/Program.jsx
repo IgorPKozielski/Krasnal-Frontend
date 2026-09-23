@@ -355,26 +355,38 @@ const handleProgramEventClick = (event) => {
 
 
     {programDays.map((day) => (
-      <div className="timeline-day-track" key={day.id}>
+  <div className="timeline-day-track" key={day.id}>
 
-        {day.events.map((event, index) => (
-  <div
-    key={`${day.id}-${index}`}
-    className={`
-      timeline-event
-      timeline-event-${event.type}
-      timeline-event-${event.lane}
-      ${event.action ? 'clickable' : ''}
-    `}
-    style={getEventStyle(event)}
-    onClick={() => event.action && handleProgramEventClick(event)}
-  >
-    <span>{event.title}</span>
-  </div>
-))}
+    {timeSlots
+      .filter((_, index) => index % 2 === 0)
+      .map((slot, index) => (
+        <div
+          key={`grid-${slot.label}`}
+          className={`timeline-grid-line ${
+            index % 2 === 0 ? 'full-hour' : 'half-hour'
+          }`}
+          style={{ top: `${slot.top}px` }}
+        />
+      ))}
 
+    {day.events.map((event, index) => (
+      <div
+        key={`${day.id}-${index}`}
+        className={`
+          timeline-event
+          timeline-event-${event.type}
+          timeline-event-${event.lane}
+          ${event.action ? 'clickable' : ''}
+        `}
+        style={getEventStyle(event)}
+        onClick={() => event.action && handleProgramEventClick(event)}
+      >
+        <span>{event.title}</span>
       </div>
     ))}
+
+  </div>
+))}
 
   </div>
 
@@ -417,31 +429,41 @@ const handleProgramEventClick = (event) => {
     ))}
 </div>
 
-      <div className="timeline-day-track">
+     <div className="timeline-day-track">
 
-       {selectedProgramDay.events.map((event, index) => (
-  <div
-    key={`${selectedProgramDay.id}-${index}`}
-    className={`
-      timeline-event
-      timeline-event-${event.type}
-      timeline-event-${event.lane}
-      ${event.action ? 'clickable' : ''}
-    `}
-    style={getEventStyle(event)}
-    onClick={() => event.action && handleProgramEventClick(event)}
-  >
-    <span>{event.title}</span>
-  </div>
-))}
+  {timeSlots
+    .filter((_, index) => index % 2 === 0)
+    .map((slot, index) => (
+      <div
+        key={`mobile-grid-${slot.label}`}
+        className={`timeline-grid-line ${
+          index % 2 === 0 ? 'full-hour' : 'half-hour'
+        }`}
+        style={{ top: `${slot.top}px` }}
+      />
+    ))}
 
-      </div>
-
+  {selectedProgramDay.events.map((event, index) => (
+    <div
+      key={`${selectedProgramDay.id}-${index}`}
+      className={`
+        timeline-event
+        timeline-event-${event.type}
+        timeline-event-${event.lane}
+        ${event.action ? 'clickable' : ''}
+      `}
+      style={getEventStyle(event)}
+      onClick={() => event.action && handleProgramEventClick(event)}
+    >
+      <span>{event.title}</span>
     </div>
+  ))}
+
+</div>
 
   </div>
 </div>
-
+</div> 
 <div className={`cube-face program-face cube-right ${programFace === 1 ? "active" : ""}`}>
   <h2>Jak dojechać?</h2>
   <div className="section-underline"></div>
