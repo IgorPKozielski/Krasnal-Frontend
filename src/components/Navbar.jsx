@@ -57,6 +57,15 @@ function Navbar({ setAboutFace, setProgramFace }) {
   >
     μForFiz
   </button>
+ <button
+  onClick={() =>
+    document
+      .getElementById("szkola-doktorska")
+      ?.scrollIntoView({ behavior: "smooth" })
+  }
+>
+  Szkoła doktorska PWr
+</button>
 </div>
           </div>
 

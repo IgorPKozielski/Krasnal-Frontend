@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Sponsors from "./components/Sponsors";
 import MikroForFiz from './components/MikroForFiz';
-
+import SzkolaDoktorska from './components/szkolaDoktorska';
 function App() {
   const [aboutFace, setAboutFace] = useState(0);
   const [programFace, setProgramFace] = useState(0);
@@ -25,6 +25,7 @@ function App() {
       <About aboutFace={aboutFace} setAboutFace={setAboutFace} />
       <Program programFace={programFace} setProgramFace={setProgramFace} setAboutFace={setAboutFace} />
       <MikroForFiz />
+      <SzkolaDoktorska />
       <Sponsors />
       <Register setAboutFace={setAboutFace} />
       <Contact />

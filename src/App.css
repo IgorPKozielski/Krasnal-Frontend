@@ -2655,3 +2655,254 @@
   align-items: center;
   gap: 10px;
 }
+/* =========================
+   SZKOŁA DOKTORSKA PWR
+   ========================= */
+
+.doctoral-section {
+  padding: 90px 24px;
+  background: #eef3f4;
+}
+
+.doctoral-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.doctoral-content {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 60px;
+  align-items: center;
+}
+
+
+/* =========================
+   OPIS
+   ========================= */
+
+.doctoral-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #203b49;
+}
+
+.doctoral-label {
+  display: inline-block;
+
+  margin-bottom: 12px;
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  background: #b6d80b;
+  color: #06283a;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.doctoral-description h2 {
+  margin: 0 0 24px;
+
+  font-size: 42px;
+  line-height: 1.2;
+
+  color: #06283a;
+}
+
+.doctoral-description p {
+  margin: 0 0 18px;
+}
+
+
+/* =========================
+   KARTA PREZENTACJI
+   ========================= */
+
+.doctoral-card {
+  overflow: hidden;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 35px rgba(0, 25, 40, 0.1);
+}
+
+
+/* Logo Szkoły Doktorskiej */
+
+.doctoral-card-logo {
+  height: 210px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: white;
+}
+
+.doctoral-card-logo img {
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* Dolna część karty */
+
+.doctoral-card-info {
+  padding: 24px 26px 28px;
+
+  border-top: 1px solid #e4eaec;
+}
+
+.doctoral-card-info span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #729000;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.doctoral-card-info h3 {
+  margin: 0 0 12px;
+
+  font-size: 25px;
+  line-height: 1.25;
+
+  color: #06283a;
+}
+
+.doctoral-card-info p {
+  margin: 0 0 22px;
+
+  line-height: 1.55;
+
+  color: #536a75;
+}
+
+
+/* =========================
+   PRZYCISK
+   ========================= */
+
+.doctoral-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 20px;
+
+  border-radius: 10px;
+
+  background: #b6d80b;
+  color: #06283a;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.doctoral-button:hover {
+  transform: translateY(-2px);
+
+  background: #a8c80a;
+}
+
+
+/* =========================
+   TELEFON / TABLET
+   ========================= */
+
+@media (max-width: 850px) {
+
+  .doctoral-section {
+    padding: 65px 20px;
+
+    scroll-margin-top: 80px;
+  }
+
+  .doctoral-content {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .doctoral-description h2 {
+    font-size: 34px;
+  }
+
+  .doctoral-card {
+    max-width: 500px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+  .doctoral-card-logo {
+    height: 200px;
+
+    padding: 28px;
+  }
+}
+
+
+/* =========================
+   MAŁY TELEFON
+   ========================= */
+
+@media (max-width: 500px) {
+
+  .doctoral-section {
+    padding: 55px 16px;
+  }
+
+  .doctoral-description {
+    font-size: 16px;
+  }
+
+  .doctoral-description h2 {
+    font-size: 28px;
+  }
+
+  .doctoral-card-logo {
+    height: 170px;
+
+    padding: 24px;
+  }
+
+  .doctoral-card-info {
+    padding: 22px 20px 24px;
+  }
+
+  .doctoral-card-info h3 {
+    font-size: 22px;
+  }
+
+  .doctoral-button {
+    width: 100%;
+  }
+}
